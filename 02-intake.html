@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analyse Call | Viva Brasil Travel Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600&family=Oswald:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#F4F2EE;color:#1E2D5A;font-family:Montserrat,Arial,sans-serif}.app{display:flex;min-height:100vh}.sidebar{position:fixed;inset:0 auto 0 0;width:200px;background:#141E3D;color:#fff;padding:28px 0}.logo{font-family:"Bebas Neue",sans-serif;color:#C9902A;font-size:31px;line-height:.92;letter-spacing:.035em;padding:0 24px 34px}.logo span{display:block;color:rgba(255,255,255,.58);font-family:Oswald,sans-serif;font-size:9px;letter-spacing:.42em;margin-top:8px}.nav{display:grid;gap:6px}.nav a{color:rgba(255,255,255,.68);font-family:Oswald,sans-serif;font-size:13px;letter-spacing:.08em;text-decoration:none;text-transform:uppercase;padding:14px 22px;border-left:4px solid transparent}.nav a:hover,.nav a.active{color:#C9902A;background:rgba(255,255,255,.045);border-left-color:#C9902A}.main{margin-left:200px;width:calc(100% - 200px);padding:42px 46px}.shell{max-width:720px;margin:58px auto 0}.eyebrow{font-family:Oswald,sans-serif;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#C9902A;margin-bottom:8px}.h1{font-family:"Bebas Neue",sans-serif;font-size:58px;line-height:.95;letter-spacing:.025em;color:#1E2D5A;margin:0 0 14px}.sub{margin:0 0 30px;color:#6d6a65;font-size:14px;line-height:1.65}.form{background:#fff;border:1px solid #E0DDD8;border-radius:6px;padding:28px;box-shadow:0 14px 34px rgba(20,30,61,.06)}label{display:block;font-family:Oswald,sans-serif;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#1E2D5A;margin-bottom:8px}.field{margin-bottom:22px}input,textarea{width:100%;border:1px solid #D8D3CB;border-radius:4px;background:#fff;color:#28324f;font-family:Montserrat,Arial,sans-serif;font-size:14px;padding:14px 15px;outline:none}textarea{min-height:290px;resize:vertical;line-height:1.65}input:focus,textarea:focus{border-color:#C9902A;box-shadow:0 0 0 3px rgba(201,144,42,.12)}.helper{font-size:12px;color:#7d7770;line-height:1.6;margin-top:-10px;margin-bottom:22px}.btn{display:inline-flex;align-items:center;justify-content:center;width:100%;min-height:48px;padding:0 20px;border-radius:4px;border:1px solid transparent;font-family:Oswald,sans-serif;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;cursor:pointer}.btn.gold{background:#C9902A;color:#141E3D}.btn.gold:hover{background:#a87820}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="logo">Viva Brasil<br>Travel Studio<span>Proposal Workspace</span></div>
+      <nav class="nav">
+        <a href="01-dashboard.html">Dashboard</a>
+        <a class="active" href="02-intake.html">Clients</a>
+        <a href="04-stories.html">Travel Stories</a>
+        <a href="05-draft.html">Proposals</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <section class="shell">
+        <div class="eyebrow">Client Intake</div>
+        <h1 class="h1">New Client: Analyse Call</h1>
+        <p class="sub">Paste the call material once. The Studio will pull out the client profile, the route signals, and the open questions Daniel needs to confirm.</p>
+        <form class="form" onsubmit="event.preventDefault(); window.location.href='03-review.html';">
+          <div class="field">
+            <label for="client">Client name</label>
+            <input id="client" required placeholder="e.g. Markus Keller" value="Markus Keller">
+          </div>
+          <div class="field">
+            <label for="transcript">Transcript or call notes</label>
+            <textarea id="transcript" placeholder="Paste your call transcript or notes here. The more detail, the better the extraction.">Markus and his partner are travelling from Germany in July 2026 for around two weeks. First time in Brazil. They asked about Pantanal wildlife and whether something coastal could be combined without too many domestic flights. Markus reacted strongly to jaguar watching, boats, open vehicles, and places where the transport feels like part of the experience. He is concerned about very remote lodges with weak comfort and about losing days in airports. Budget sounded like USD 12,000 to 15,000 for two people, excluding international flights. I explained that Amazon and Pantanal together would be too much for a first two-week trip.</textarea>
+          </div>
+          <p class="helper">You can paste a raw transcript, bullet notes, or a written summary. The AI will extract the key details.</p>
+          <button class="btn gold" type="submit">Analyse Call</button>
+        </form>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

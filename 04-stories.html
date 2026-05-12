@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Building Blocks | Viva Brasil Travel Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600&family=Oswald:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#F4F2EE;color:#1E2D5A;font-family:Montserrat,Arial,sans-serif}.app{display:flex;min-height:100vh}.sidebar{position:fixed;inset:0 auto 0 0;width:200px;background:#141E3D;color:#fff;padding:28px 0}.logo{font-family:"Bebas Neue",sans-serif;color:#C9902A;font-size:31px;line-height:.92;letter-spacing:.035em;padding:0 24px 34px}.logo span{display:block;color:rgba(255,255,255,.58);font-family:Oswald,sans-serif;font-size:9px;letter-spacing:.42em;margin-top:8px}.nav{display:grid;gap:6px}.nav a{color:rgba(255,255,255,.68);font-family:Oswald,sans-serif;font-size:13px;letter-spacing:.08em;text-decoration:none;text-transform:uppercase;padding:14px 22px;border-left:4px solid transparent}.nav a:hover,.nav a.active{color:#C9902A;background:rgba(255,255,255,.045);border-left-color:#C9902A}.main{margin-left:200px;width:calc(100% - 200px);padding:38px 46px 54px}.top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:26px}.eyebrow,.divider{font-family:Oswald,sans-serif;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#C9902A}.h1{font-family:"Bebas Neue",sans-serif;font-size:54px;line-height:.95;letter-spacing:.025em;margin:8px 0 8px}.sub{margin:0;color:#6d6a65;font-size:14px;line-height:1.65}.stack{display:grid;gap:14px}.divider{margin:30px 0 14px;color:#1E2D5A}.story{position:relative;background:#fff;border:1px solid #E0DDD8;border-radius:6px;padding:22px 24px 20px;box-shadow:0 12px 30px rgba(20,30,61,.055)}.story.muted{background:#fbfaf8;color:#5d616f}.status{position:absolute;right:22px;top:20px;display:inline-flex;gap:7px;align-items:center;font-family:Oswald,sans-serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#1A6B45}.story.muted .status{color:#77716c}.dot{width:8px;height:8px;border-radius:50%;background:#1A6B45}.story.muted .dot{background:#aaa29a}.title{font-family:"Bebas Neue",sans-serif;font-size:34px;letter-spacing:.03em;line-height:1;margin:0 0 6px;color:#1E2D5A}.region{font-family:Oswald,sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#C9902A}.why{margin:12px 160px 14px 0;color:#77716c;font-size:14px;font-style:italic;line-height:1.55}.tags{display:flex;gap:8px;flex-wrap:wrap}.tag{border:1px solid #E0DDD8;border-radius:999px;padding:5px 10px;color:#5a5752;background:#F7F4EF;font-size:11px;font-weight:600}.linkbtn{border:0;background:transparent;font-family:Oswald,sans-serif;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;padding:0;margin-left:12px}.remove{color:#a14232}.add{color:#1A6B45}.actions{position:absolute;right:22px;bottom:22px}.bottom{display:flex;justify-content:flex-end;margin-top:26px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 20px;border-radius:4px;border:1px solid transparent;font-family:Oswald,sans-serif;font-size:12px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;cursor:pointer}.btn.gold{background:#C9902A;color:#141E3D}.btn.gold:hover{background:#a87820}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="logo">Viva Brasil<br>Travel Studio<span>Proposal Workspace</span></div>
+      <nav class="nav">
+        <a href="01-dashboard.html">Dashboard</a>
+        <a href="02-intake.html">Clients</a>
+        <a class="active" href="04-stories.html">Travel Stories</a>
+        <a href="05-draft.html">Proposals</a>
+      </nav>
+    </aside>
+    <main class="main">
+      <header class="top">
+        <div>
+          <div class="eyebrow">Proposal Ingredients</div>
+          <h1 class="h1">Building Blocks: Markus Keller</h1>
+          <p class="sub">The AI selected these Travel Stories based on the call. Add, remove, or reorder before drafting.</p>
+        </div>
+      </header>
+
+      <section class="stack" id="selected">
+        <article class="story">
+          <div class="status"><span class="dot"></span>Included</div>
+          <h2 class="title">Northern Pantanal: Jaguar Circuit</h2>
+          <div class="region">Pantanal</div>
+          <p class="why">Markus reacted strongly to jaguar watching and unusual transport. This is the right opening.</p>
+          <div class="tags"><span class="tag">4 nights</span><span class="tag">Active mornings</span><span class="tag">Mid-high comfort</span></div>
+          <div class="actions"><button class="linkbtn remove" onclick="moveStory(this, false)">Remove</button></div>
+        </article>
+        <article class="story">
+          <div class="status"><span class="dot"></span>Included</div>
+          <h2 class="title">Lençóis Maranhenses</h2>
+          <div class="region">Maranhão</div>
+          <p class="why">First-time Brazil client wanting visual contrast. The lagoons will land exactly right.</p>
+          <div class="tags"><span class="tag">3 nights</span><span class="tag">Moderate walks</span><span class="tag">High visual impact</span></div>
+          <div class="actions"><button class="linkbtn remove" onclick="moveStory(this, false)">Remove</button></div>
+        </article>
+        <article class="story">
+          <div class="status"><span class="dot"></span>Included</div>
+          <h2 class="title">Parnaíba Delta: River to Sea</h2>
+          <div class="region">Piauí</div>
+          <p class="why">Connects Lencois to the coast. The hovercraft crossing fits his appetite for unusual transport.</p>
+          <div class="tags"><span class="tag">2 nights</span><span class="tag">Boat day</span><span class="tag">Unusual transport</span></div>
+          <div class="actions"><button class="linkbtn remove" onclick="moveStory(this, false)">Remove</button></div>
+        </article>
+      </section>
+
+      <div class="divider">Add from library</div>
+      <section class="stack" id="available">
+        <article class="story muted">
+          <div class="status"><span class="dot"></span>Not included</div>
+          <h2 class="title">Amazon: Lodge vs. Boat</h2>
+          <div class="region">Amazon</div>
+          <p class="why">Best for clients choosing between two Amazon styles.</p>
+          <div class="tags"><span class="tag">4-6 nights</span><span class="tag">Flexible comfort</span></div>
+          <div class="actions"><button class="linkbtn add" onclick="moveStory(this, true)">Add</button></div>
+        </article>
+        <article class="story muted">
+          <div class="status"><span class="dot"></span>Not included</div>
+          <h2 class="title">Ceará Beach Extension</h2>
+          <div class="region">Ceará</div>
+          <p class="why">Coastal rest after active itinerary. Could work as an add-on.</p>
+          <div class="tags"><span class="tag">2-4 nights</span><span class="tag">Restful</span></div>
+          <div class="actions"><button class="linkbtn add" onclick="moveStory(this, true)">Add</button></div>
+        </article>
+        <article class="story muted">
+          <div class="status"><span class="dot"></span>Not included</div>
+          <h2 class="title">Bonito: Water and Wildlife</h2>
+          <div class="region">Mato Grosso do Sul</div>
+          <p class="why">Not the right fit here based on budget and duration.</p>
+          <div class="tags"><span class="tag">3 nights</span><span class="tag">Clear-water activities</span></div>
+          <div class="actions"><button class="linkbtn add" onclick="moveStory(this, true)">Add</button></div>
+        </article>
+      </section>
+
+      <div class="bottom"><a class="btn gold" href="05-draft.html">Draft Proposal</a></div>
+    </main>
+  </div>
+  <script>
+    function moveStory(button, include){
+      const card = button.closest('.story');
+      const status = card.querySelector('.status');
+      if(include){
+        card.classList.remove('muted');
+        status.innerHTML = '<span class="dot"></span>Included';
+        button.textContent = 'Remove';
+        button.className = 'linkbtn remove';
+        button.setAttribute('onclick','moveStory(this, false)');
+        document.getElementById('selected').appendChild(card);
+      }else{
+        card.classList.add('muted');
+        status.innerHTML = '<span class="dot"></span>Not included';
+        button.textContent = 'Add';
+        button.className = 'linkbtn add';
+        button.setAttribute('onclick','moveStory(this, true)');
+        document.getElementById('available').appendChild(card);
+      }
+    }
+  </script>
+</body>
+</html>
