@@ -8,7 +8,55 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600&family=Oswald:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <style>
-    *{box-sizing:border-box}body{margin:0;background:#F4F2EE;color:#1E2D5A;font-family:Montserrat,Arial,sans-serif}.app{display:flex;min-height:100vh}.sidebar{position:fixed;inset:0 auto 0 0;width:200px;background:#141E3D;color:#fff;padding:28px 0}.logo{font-family:"Bebas Neue",sans-serif;color:#C9902A;font-size:31px;line-height:.92;letter-spacing:.035em;padding:0 24px 34px}.logo span{display:block;color:rgba(255,255,255,.58);font-family:Oswald,sans-serif;font-size:9px;letter-spacing:.42em;margin-top:8px}.nav{display:grid;gap:6px}.nav a{color:rgba(255,255,255,.68);font-family:Oswald,sans-serif;font-size:13px;letter-spacing:.08em;text-decoration:none;text-transform:uppercase;padding:14px 22px;border-left:4px solid transparent}.nav a:hover,.nav a.active{color:#C9902A;background:rgba(255,255,255,.045);border-left-color:#C9902A}.main{margin-left:200px;width:calc(100% - 200px);padding:38px 46px 54px}.top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:26px}.eyebrow,.divider{font-family:Oswald,sans-serif;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#C9902A}.h1{font-family:"Bebas Neue",sans-serif;font-size:54px;line-height:.95;letter-spacing:.025em;margin:8px 0 8px}.sub{margin:0;color:#6d6a65;font-size:14px;line-height:1.65}.stack{display:grid;gap:14px}.divider{margin:30px 0 14px;color:#1E2D5A}.story{position:relative;background:#fff;border:1px solid #E0DDD8;border-radius:6px;padding:22px 24px 20px;box-shadow:0 12px 30px rgba(20,30,61,.055)}.story.muted{background:#fbfaf8;color:#5d616f}.status{position:absolute;right:22px;top:20px;display:inline-flex;gap:7px;align-items:center;font-family:Oswald,sans-serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#1A6B45}.story.muted .status{color:#77716c}.dot{width:8px;height:8px;border-radius:50%;background:#1A6B45}.story.muted .dot{background:#aaa29a}.title{font-family:"Bebas Neue",sans-serif;font-size:34px;letter-spacing:.03em;line-height:1;margin:0 0 6px;color:#1E2D5A}.region{font-family:Oswald,sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#C9902A}.why{margin:12px 160px 14px 0;color:#77716c;font-size:14px;font-style:italic;line-height:1.55}.tags{display:flex;gap:8px;flex-wrap:wrap}.tag{border:1px solid #E0DDD8;border-radius:999px;padding:5px 10px;color:#5a5752;background:#F7F4EF;font-size:11px;font-weight:600}.linkbtn{border:0;background:transparent;font-family:Oswald,sans-serif;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;padding:0;margin-left:12px}.remove{color:#a14232}.add{color:#1A6B45}.actions{position:absolute;right:22px;bottom:22px}.bottom{display:flex;justify-content:flex-end;margin-top:26px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 20px;border-radius:4px;border:1px solid transparent;font-family:Oswald,sans-serif;font-size:12px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;cursor:pointer}.btn.gold{background:#C9902A;color:#141E3D}.btn.gold:hover{background:#a87820}
+    *{box-sizing:border-box}
+    body{margin:0;background:#F4F2EE;color:#1E2D5A;font-family:Montserrat,Arial,sans-serif}
+    .app{display:flex;min-height:100vh}
+    .sidebar{position:fixed;inset:0 auto 0 0;width:200px;background:#141E3D;color:#fff;padding:28px 0}
+    .logo{font-family:"Bebas Neue",sans-serif;color:#C9902A;font-size:31px;line-height:.92;letter-spacing:.035em;padding:0 24px 34px}
+    .logo span{display:block;color:rgba(255,255,255,.58);font-family:Oswald,sans-serif;font-size:9px;letter-spacing:.42em;margin-top:8px}
+    .nav{display:grid;gap:6px}
+    .nav a{color:rgba(255,255,255,.68);font-family:Oswald,sans-serif;font-size:13px;letter-spacing:.08em;text-decoration:none;text-transform:uppercase;padding:14px 22px;border-left:4px solid transparent}
+    .nav a:hover,.nav a.active{color:#C9902A;background:rgba(255,255,255,.045);border-left-color:#C9902A}
+    .main{margin-left:200px;width:calc(100% - 200px);padding:38px 46px 54px}
+    .top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:30px}
+    .eyebrow{font-family:Oswald,sans-serif;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#C9902A}
+    .h1{font-family:"Bebas Neue",sans-serif;font-size:54px;line-height:.95;letter-spacing:.025em;margin:8px 0 8px}
+    .sub{margin:0;color:#6d6a65;font-size:14px;line-height:1.65}
+    .divider{font-family:Oswald,sans-serif;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#1E2D5A;margin:34px 0 16px;padding-top:30px;border-top:1px solid #E0DDD8}
+    .stack{display:grid;gap:18px}
+
+    /* Story card */
+    .story{background:#fff;border:1px solid #E0DDD8;border-radius:6px;overflow:hidden;box-shadow:0 10px 28px rgba(20,30,61,.06);transition:box-shadow .2s}
+    .story:hover{box-shadow:0 14px 38px rgba(20,30,61,.1)}
+
+    /* Image area */
+    .story-img{position:relative;height:220px;overflow:hidden}
+    .story-img img{width:100%;height:100%;object-fit:cover;display:block;transition:filter .35s,transform .35s}
+    .story:hover .story-img img{transform:scale(1.025)}
+    .story.muted .story-img img{filter:grayscale(60%) brightness(.88)}
+    .story.muted .story-img::after{content:'';position:absolute;inset:0;background:rgba(20,30,61,.16)}
+    .region-label{position:absolute;bottom:13px;left:14px;font-family:Oswald,sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#fff;background:rgba(20,30,61,.65);backdrop-filter:blur(3px);padding:4px 9px;border-radius:3px}
+    .status{position:absolute;top:13px;right:13px;display:inline-flex;gap:6px;align-items:center;font-family:Oswald,sans-serif;font-size:11px;letter-spacing:.1em;text-transform:uppercase;background:rgba(255,255,255,.93);backdrop-filter:blur(4px);padding:5px 10px;border-radius:3px;color:#1A6B45}
+    .story.muted .status{color:#77716c}
+    .dot{width:7px;height:7px;border-radius:50%;background:#1A6B45;flex-shrink:0}
+    .story.muted .dot{background:#aaa29a}
+
+    /* Story body */
+    .story-body{padding:18px 20px 17px}
+    .title{font-family:"Bebas Neue",sans-serif;font-size:30px;letter-spacing:.03em;line-height:1;margin:0 0 4px;color:#1E2D5A}
+    .why{margin:8px 0 14px;color:#77716c;font-size:13.5px;font-style:italic;line-height:1.58}
+    .story-footer{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .tags{display:flex;gap:7px;flex-wrap:wrap}
+    .tag{border:1px solid #E0DDD8;border-radius:999px;padding:4px 10px;color:#5a5752;background:#F7F4EF;font-size:11px;font-weight:600}
+    .linkbtn{border:0;background:transparent;font-family:Oswald,sans-serif;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;padding:0;flex-shrink:0}
+    .remove{color:#a14232}
+    .add{color:#1A6B45}
+
+    /* Bottom CTA */
+    .bottom{display:flex;justify-content:flex-end;margin-top:32px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 22px;border-radius:4px;border:1px solid transparent;font-family:Oswald,sans-serif;font-size:12px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;cursor:pointer}
+    .btn.gold{background:#C9902A;color:#141E3D}
+    .btn.gold:hover{background:#a87820}
   </style>
 </head>
 <body>
@@ -22,90 +70,143 @@
         <a href="05-draft.html">Proposals</a>
       </nav>
     </aside>
+
     <main class="main">
       <header class="top">
         <div>
-          <div class="eyebrow">Proposal Ingredients</div>
-          <h1 class="h1">Building Blocks: Markus Keller</h1>
+          <div class="eyebrow">Building Blocks</div>
+          <h1 class="h1">Markus Keller</h1>
           <p class="sub">The AI selected these Travel Stories based on the call. Add, remove, or reorder before drafting.</p>
         </div>
       </header>
 
       <section class="stack" id="selected">
+
         <article class="story">
-          <div class="status"><span class="dot"></span>Included</div>
-          <h2 class="title">Northern Pantanal: Jaguar Circuit</h2>
-          <div class="region">Pantanal</div>
-          <p class="why">Markus reacted strongly to jaguar watching and unusual transport. This is the right opening.</p>
-          <div class="tags"><span class="tag">4 nights</span><span class="tag">Active mornings</span><span class="tag">Mid-high comfort</span></div>
-          <div class="actions"><button class="linkbtn remove" onclick="moveStory(this, false)">Remove</button></div>
+          <div class="story-img">
+            <img src="assets/images/pantanal-araras.webp" alt="Northern Pantanal" width="800" height="220" loading="eager">
+            <div class="region-label">Pantanal</div>
+            <div class="status"><span class="dot"></span>Included</div>
+          </div>
+          <div class="story-body">
+            <h2 class="title">Northern Pantanal: Jaguar Circuit</h2>
+            <p class="why">Markus reacted strongly to jaguar watching and unusual transport. This is the right opening — the road north and the river searches are already part of the experience before anything is guaranteed.</p>
+            <div class="story-footer">
+              <div class="tags"><span class="tag">4 nights</span><span class="tag">Active mornings</span><span class="tag">Mid-high comfort</span></div>
+              <button class="linkbtn remove" onclick="moveStory(this, false)">Remove</button>
+            </div>
+          </div>
         </article>
+
         <article class="story">
-          <div class="status"><span class="dot"></span>Included</div>
-          <h2 class="title">Lençóis Maranhenses</h2>
-          <div class="region">Maranhão</div>
-          <p class="why">First-time Brazil client wanting visual contrast. The lagoons will land exactly right.</p>
-          <div class="tags"><span class="tag">3 nights</span><span class="tag">Moderate walks</span><span class="tag">High visual impact</span></div>
-          <div class="actions"><button class="linkbtn remove" onclick="moveStory(this, false)">Remove</button></div>
+          <div class="story-img">
+            <img src="assets/images/lencois-maranhenses.webp" alt="Lençóis Maranhenses" width="800" height="220" loading="lazy">
+            <div class="region-label">Maranhão</div>
+            <div class="status"><span class="dot"></span>Included</div>
+          </div>
+          <div class="story-body">
+            <h2 class="title">Lençóis Maranhenses</h2>
+            <p class="why">First-time Brazil client wanting visual contrast. The lagoons will land exactly right after the Pantanal's density — a total shift in atmosphere, colour, and pace.</p>
+            <div class="story-footer">
+              <div class="tags"><span class="tag">3 nights</span><span class="tag">Moderate walks</span><span class="tag">High visual impact</span></div>
+              <button class="linkbtn remove" onclick="moveStory(this, false)">Remove</button>
+            </div>
+          </div>
         </article>
+
         <article class="story">
-          <div class="status"><span class="dot"></span>Included</div>
-          <h2 class="title">Parnaíba Delta: River to Sea</h2>
-          <div class="region">Piauí</div>
-          <p class="why">Connects Lencois to the coast. The hovercraft crossing fits his appetite for unusual transport.</p>
-          <div class="tags"><span class="tag">2 nights</span><span class="tag">Boat day</span><span class="tag">Unusual transport</span></div>
-          <div class="actions"><button class="linkbtn remove" onclick="moveStory(this, false)">Remove</button></div>
+          <div class="story-img">
+            <img src="assets/images/lencois-offroad.webp" alt="Parnaíba Delta" width="800" height="220" loading="lazy">
+            <div class="region-label">Piauí</div>
+            <div class="status"><span class="dot"></span>Included</div>
+          </div>
+          <div class="story-body">
+            <h2 class="title">Parnaíba Delta: River to Sea</h2>
+            <p class="why">Connects Lençóis to the coast. The open-vehicle crossing and the speedboat from Tutoia fit his appetite for transport that feels like part of the journey, not just a transfer.</p>
+            <div class="story-footer">
+              <div class="tags"><span class="tag">2 nights</span><span class="tag">Boat day</span><span class="tag">Unusual transport</span></div>
+              <button class="linkbtn remove" onclick="moveStory(this, false)">Remove</button>
+            </div>
+          </div>
         </article>
+
       </section>
 
       <div class="divider">Add from library</div>
+
       <section class="stack" id="available">
+
         <article class="story muted">
-          <div class="status"><span class="dot"></span>Not included</div>
-          <h2 class="title">Amazon: Lodge vs. Boat</h2>
-          <div class="region">Amazon</div>
-          <p class="why">Best for clients choosing between two Amazon styles.</p>
-          <div class="tags"><span class="tag">4-6 nights</span><span class="tag">Flexible comfort</span></div>
-          <div class="actions"><button class="linkbtn add" onclick="moveStory(this, true)">Add</button></div>
+          <div class="story-img">
+            <img src="assets/images/amazonia.webp" alt="Amazon" width="800" height="220" loading="lazy">
+            <div class="region-label">Amazon</div>
+            <div class="status"><span class="dot"></span>Not included</div>
+          </div>
+          <div class="story-body">
+            <h2 class="title">Amazon: Lodge vs. Boat</h2>
+            <p class="why">Best for clients choosing between two very different Amazon experiences. Less relevant here — adding it would extend the trip beyond 14 days.</p>
+            <div class="story-footer">
+              <div class="tags"><span class="tag">4–6 nights</span><span class="tag">Flexible comfort</span></div>
+              <button class="linkbtn add" onclick="moveStory(this, true)">Add</button>
+            </div>
+          </div>
         </article>
+
         <article class="story muted">
-          <div class="status"><span class="dot"></span>Not included</div>
-          <h2 class="title">Ceará Beach Extension</h2>
-          <div class="region">Ceará</div>
-          <p class="why">Coastal rest after active itinerary. Could work as an add-on.</p>
-          <div class="tags"><span class="tag">2-4 nights</span><span class="tag">Restful</span></div>
-          <div class="actions"><button class="linkbtn add" onclick="moveStory(this, true)">Add</button></div>
+          <div class="story-img">
+            <img src="assets/images/home-1.webp" alt="Ceará Beach" width="800" height="220" loading="lazy">
+            <div class="region-label">Ceará</div>
+            <div class="status"><span class="dot"></span>Not included</div>
+          </div>
+          <div class="story-body">
+            <h2 class="title">Ceará Beach Extension</h2>
+            <p class="why">Coastal rest after an active itinerary. Could work as a two-night add-on if Markus wants to finish somewhere slow before flying home.</p>
+            <div class="story-footer">
+              <div class="tags"><span class="tag">2–4 nights</span><span class="tag">Restful</span></div>
+              <button class="linkbtn add" onclick="moveStory(this, true)">Add</button>
+            </div>
+          </div>
         </article>
+
         <article class="story muted">
-          <div class="status"><span class="dot"></span>Not included</div>
-          <h2 class="title">Bonito: Water and Wildlife</h2>
-          <div class="region">Mato Grosso do Sul</div>
-          <p class="why">Not the right fit here based on budget and duration.</p>
-          <div class="tags"><span class="tag">3 nights</span><span class="tag">Clear-water activities</span></div>
-          <div class="actions"><button class="linkbtn add" onclick="moveStory(this, true)">Add</button></div>
+          <div class="story-img">
+            <img src="assets/images/home-3.webp" alt="Bonito" width="800" height="220" loading="lazy">
+            <div class="region-label">Mato Grosso do Sul</div>
+            <div class="status"><span class="dot"></span>Not included</div>
+          </div>
+          <div class="story-body">
+            <h2 class="title">Bonito: Water and Wildlife</h2>
+            <p class="why">Excellent destination — not the right fit here based on the July timing and the 14-day constraint. Better suited to clients who have already done the north.</p>
+            <div class="story-footer">
+              <div class="tags"><span class="tag">3 nights</span><span class="tag">Clear-water activities</span></div>
+              <button class="linkbtn add" onclick="moveStory(this, true)">Add</button>
+            </div>
+          </div>
         </article>
+
       </section>
 
-      <div class="bottom"><a class="btn gold" href="05-draft.html">Draft Proposal</a></div>
+      <div class="bottom"><a class="btn gold" href="05-draft.html">Draft Proposal →</a></div>
     </main>
   </div>
+
   <script>
-    function moveStory(button, include){
+    function moveStory(button, include) {
       const card = button.closest('.story');
       const status = card.querySelector('.status');
-      if(include){
+      if (include) {
         card.classList.remove('muted');
         status.innerHTML = '<span class="dot"></span>Included';
         button.textContent = 'Remove';
         button.className = 'linkbtn remove';
-        button.setAttribute('onclick','moveStory(this, false)');
+        button.setAttribute('onclick', 'moveStory(this, false)');
         document.getElementById('selected').appendChild(card);
-      }else{
+      } else {
         card.classList.add('muted');
         status.innerHTML = '<span class="dot"></span>Not included';
         button.textContent = 'Add';
         button.className = 'linkbtn add';
-        button.setAttribute('onclick','moveStory(this, true)');
+        button.setAttribute('onclick', 'moveStory(this, true)');
         document.getElementById('available').appendChild(card);
       }
     }
