@@ -1,90 +1,103 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Client Workspace — Viva Brasil Travel Studio</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600&family=Oswald:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600&family=Oswald:wght@400;500;600&display=swap"></noscript>
-<style>
-:root{
-  --navy:#1E2D5A;
-  --navy-deep:#141E3D;
-  --green:#1A6B45;
-  --gold:#C9902A;
-  --off:#F4F2EE;
-  --paper:#FBFAF7;
-  --ink:#18213B;
-  --muted:#6D7280;
-  --line:#E5E0D6;
-  --soft:#EEE9DE;
-  --grey:#9CA3AF;
-  --shadow:0 18px 45px rgba(20,30,61,.10);
-}
-*{box-sizing:border-box}
-html,body{margin:0;min-height:100%;font-family:'Montserrat',Arial,sans-serif;color:var(--ink);background:var(--off);}
-body{font-weight:400;letter-spacing:-.01em;}
-a{text-decoration:none;color:inherit}
-.app{min-height:100vh;display:grid;grid-template-columns:280px minmax(900px,1fr);}
-.sidebar{background:linear-gradient(180deg,var(--navy-deep),#101833);color:#fff;padding:30px 22px;position:sticky;top:0;height:100vh;box-shadow:8px 0 30px rgba(20,30,61,.16)}
-.logo{font-family:'Bebas Neue',Impact,sans-serif;color:var(--gold);font-size:36px;line-height:.96;letter-spacing:.035em;margin-bottom:8px;}
-.logo-sub{font-family:'Oswald',Arial,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:rgba(244,242,238,.58);font-size:11px;margin-bottom:42px;}
-.nav{display:flex;flex-direction:column;gap:8px;margin-top:20px;}
-.nav a{font-family:'Oswald',Arial,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:14px;color:rgba(255,255,255,.68);padding:13px 14px;border-radius:14px;border:1px solid transparent;display:flex;align-items:center;gap:10px;}
-.nav a:before{content:'';width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.22)}
-.nav a.active{background:rgba(201,144,42,.13);color:#fff;border-color:rgba(201,144,42,.35)}
-.nav a.active:before{background:var(--gold);box-shadow:0 0 0 4px rgba(201,144,42,.14)}
-.sidebar-footer{position:absolute;bottom:28px;left:22px;right:22px;border-top:1px solid rgba(255,255,255,.1);padding-top:18px;color:rgba(255,255,255,.55);font-size:12px;line-height:1.55;}
-.main{padding:34px 42px 48px;background:var(--off);}
-.topbar{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:28px;}
-.eyebrow{font-family:'Oswald',Arial,sans-serif;text-transform:uppercase;letter-spacing:.16em;font-size:12px;color:var(--gold);font-weight:600;margin-bottom:7px;}
-h1{font-family:'Bebas Neue',Impact,sans-serif;font-size:54px;line-height:.95;letter-spacing:.018em;margin:0;color:var(--navy-deep);font-weight:400;}
-.lead{margin:9px 0 0;color:var(--muted);font-size:14px;line-height:1.65;max-width:650px;}
-.card{background:var(--paper);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);}
-.card-pad{padding:24px;}
-.card-title{font-family:'Oswald',Arial,sans-serif;text-transform:uppercase;letter-spacing:.1em;font-weight:600;font-size:14px;color:var(--navy-deep);margin:0 0 18px;}
-.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:26px;}
-.status-card{position:relative;overflow:hidden;min-height:144px;padding:22px;border-left:5px solid var(--accent,var(--gold));}
-.status-card:after{content:'';position:absolute;width:110px;height:110px;border-radius:50%;right:-34px;top:-38px;background:var(--accent,var(--gold));opacity:.10;}
-.count{font-family:'Bebas Neue',Impact,sans-serif;font-size:58px;line-height:1;color:var(--navy-deep);margin:8px 0 6px;}
-.label{font-family:'Oswald',Arial,sans-serif;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-size:13px;font-weight:500;}
-.micro{font-size:12px;color:var(--muted);line-height:1.5;}
-table{width:100%;border-collapse:collapse;font-size:14px;}
-th{font-family:'Oswald',Arial,sans-serif;text-transform:uppercase;letter-spacing:.08em;text-align:left;color:var(--muted);font-size:12px;font-weight:600;padding:0 16px 14px;border-bottom:1px solid var(--line);}
-td{padding:18px 16px;border-bottom:1px solid var(--line);vertical-align:middle;}
-tr:last-child td{border-bottom:0}.name{font-weight:600;color:var(--navy-deep)}
-.badge{display:inline-flex;align-items:center;border-radius:999px;padding:6px 10px;font-family:'Oswald',Arial,sans-serif;font-size:12px;letter-spacing:.065em;text-transform:uppercase;background:#EEE7D8;color:var(--navy-deep);white-space:nowrap;}
-.badge.gold{background:rgba(201,144,42,.15);color:#805a18}.badge.green{background:rgba(26,107,69,.13);color:var(--green)}.badge.navy{background:rgba(30,45,90,.12);color:var(--navy)}.badge.grey{background:rgba(156,163,175,.18);color:#5D6470}
-.btn{border:0;border-radius:14px;padding:13px 18px;font-family:'Oswald',Arial,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:14px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;}
-.btn.gold{background:var(--gold);color:#fff;box-shadow:0 10px 24px rgba(201,144,42,.25)}.btn.green{background:var(--green);color:#fff}.btn.outline{background:transparent;color:var(--navy-deep);border:1px solid var(--line)}
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}.three-col{display:grid;grid-template-columns:1.05fr 1fr 1fr;gap:18px;align-items:start}.builder-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:22px;align-items:start}
-.field-list{display:grid;gap:12px}.field{display:grid;grid-template-columns:180px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);}.field:last-child{border-bottom:0}.field .k{font-family:'Oswald',Arial,sans-serif;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-size:12px}.field .v{font-weight:500;line-height:1.45}.input, textarea, select{width:100%;border:1px solid var(--line);background:#fff;border-radius:14px;padding:13px 14px;font-family:'Montserrat',Arial,sans-serif;font-size:14px;color:var(--ink);outline:none}.input:focus,textarea:focus,select:focus{border-color:rgba(201,144,42,.75);box-shadow:0 0 0 4px rgba(201,144,42,.10)}textarea{min-height:260px;resize:none;line-height:1.55}.brief{font-size:15px;line-height:1.8;color:#30384D;background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px}.actions{display:flex;gap:12px;align-items:center;margin-top:18px}.split{display:flex;justify-content:space-between;align-items:center;gap:16px}.draft-banner{background:rgba(201,144,42,.12);color:#6f4e14;border:1px solid rgba(201,144,42,.28);border-radius:14px;padding:11px 13px;font-family:'Oswald',Arial,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:12px;margin-bottom:16px}.extracted-row{display:grid;grid-template-columns:1fr 24px;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}.extracted-row b{display:block;font-family:'Oswald',Arial,sans-serif;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-size:11px;margin-bottom:5px}.edit{color:var(--gold);font-size:15px;text-align:right}.story-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;margin-bottom:12px}.story-card h3{font-size:16px;margin:0 0 7px;color:var(--navy-deep)}.story-card p{font-size:13px;line-height:1.55;color:var(--muted);margin:0}.pill-row{display:flex;flex-wrap:wrap;gap:8px}.tag{display:inline-flex;border:1px solid rgba(201,144,42,.34);background:rgba(201,144,42,.10);color:#7A5618;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:600}.toggle-row{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding:13px 0}.switch{width:46px;height:24px;background:#D7D0C4;border-radius:999px;position:relative}.switch:after{content:'';position:absolute;width:18px;height:18px;left:3px;top:3px;background:#fff;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,.2)}.switch.on{background:var(--green)}.switch.on:after{left:25px}.section-item{border:1px solid var(--line);background:#fff;border-radius:15px;padding:14px 15px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;font-weight:600}.section-item span{color:var(--gold)}.preview-pane{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px}.preview-header{background:var(--navy-deep);color:#fff;border-radius:18px;padding:26px;margin-bottom:18px}.preview-header .mini-logo{font-family:'Bebas Neue';font-size:30px;color:var(--gold);letter-spacing:.04em}.photo-block{height:150px;border-radius:16px;background:linear-gradient(135deg,var(--navy),var(--green));display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Bebas Neue';font-size:32px;letter-spacing:.05em;margin-bottom:14px}.quote{border-left:4px solid var(--gold);padding:12px 0 12px 16px;background:#FBF7EF;border-radius:0 12px 12px 0;font-size:14px;line-height:1.65;color:#37405A}.segmented{display:inline-flex;border:1px solid var(--line);background:#fff;border-radius:13px;padding:4px;gap:3px}.segmented span{padding:8px 11px;border-radius:10px;font-family:'Oswald';font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}.segmented span.active{background:var(--navy);color:#fff}.client-page{background:var(--off);min-height:100vh}.client-header{background:var(--navy-deep);padding:26px 46px;display:flex;justify-content:space-between;align-items:center;color:#fff}.client-header .client-logo{font-family:'Bebas Neue';color:var(--gold);font-size:35px;letter-spacing:.04em}.client-header .private{font-family:'Oswald';text-transform:uppercase;letter-spacing:.1em;font-size:13px;color:rgba(255,255,255,.72)}.proposal-wrap{max-width:1120px;margin:0 auto;padding:42px 34px 62px}.personal-note{font-family:Georgia,serif;font-style:italic;font-size:21px;line-height:1.65;color:#394059;background:#fff;border:1px solid var(--line);border-radius:24px;padding:28px;margin-bottom:26px}.section{margin:28px 0}.section h2{font-family:'Bebas Neue';font-size:38px;letter-spacing:.025em;color:var(--navy-deep);margin:0 0 16px}.bullet-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px}.bullet-card li{margin:12px 0;line-height:1.65}.direction-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.direction-card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:18px;box-shadow:var(--shadow)}.direction-card .photo-block{height:220px}.direction-card h3{margin:8px 0 8px;font-size:21px}.duration{display:inline-flex;background:rgba(201,144,42,.14);color:#805a18;border-radius:999px;padding:7px 11px;font-family:'Oswald';font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-top:12px}.footer-cta{background:var(--navy-deep);color:#fff;border-radius:28px;padding:34px;display:flex;align-items:center;justify-content:space-between;margin-top:36px}.footer-cta h2{color:#fff;margin:0;font-size:40px}.footer-cta p{margin:6px 0 0;color:rgba(255,255,255,.65)}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Detail | Viva Brasil Travel Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600&family=Oswald:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#F4F2EE;color:#1E2D5A;font-family:Montserrat,Arial,sans-serif}.app{display:flex;min-height:100vh}.sidebar{position:fixed;inset:0 auto 0 0;width:200px;background:#141E3D;color:#fff;padding:28px 0}.logo{font-family:"Bebas Neue",sans-serif;color:#C9902A;font-size:31px;line-height:.92;letter-spacing:.035em;padding:0 24px 34px}.logo span{display:block;color:rgba(255,255,255,.58);font-family:Oswald,sans-serif;font-size:9px;letter-spacing:.42em;margin-top:8px}.nav{display:grid;gap:6px}.nav a{color:rgba(255,255,255,.68);font-family:Oswald,sans-serif;font-size:13px;letter-spacing:.08em;text-decoration:none;text-transform:uppercase;padding:14px 22px;border-left:4px solid transparent}.nav a:hover,.nav a.active{color:#C9902A;background:rgba(255,255,255,.045);border-left-color:#C9902A}.main{margin-left:200px;width:calc(100% - 200px);padding:38px 46px 54px}.topbar{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:28px}.eyebrow{font-family:Oswald,sans-serif;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#C9902A;margin-bottom:8px}.h1{font-family:"Bebas Neue",sans-serif;font-size:54px;line-height:.95;letter-spacing:.025em;color:#1E2D5A;margin:0}.sub{margin:8px 0 0;color:#6d6a65;font-size:14px;line-height:1.65}.meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.badge{display:inline-flex;align-items:center;border-radius:999px;padding:6px 10px;font-size:11px;font-weight:600;background:#ebe8e2;color:#6f6a64}.badge.gold{background:rgba(201,144,42,.15);color:#8c6117}.badge.green{background:rgba(26,107,69,.13);color:#1A6B45}.badge.grey{background:#ebe8e2;color:#6f6a64}.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.panel{background:#fff;border:1px solid #E0DDD8;border-radius:6px;box-shadow:0 14px 34px rgba(20,30,61,.06);overflow:hidden}.panel.large{grid-column:1 / -1}.panel-head{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid #E0DDD8}.label{font-family:Oswald,sans-serif;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#1E2D5A}.edit{font-family:Oswald,sans-serif;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#C9902A;text-decoration:none}.panel-body{padding:22px 24px}.notes{width:100%;min-height:260px;border:1px solid #E0DDD8;border-radius:4px;background:#fbfaf8;color:#3d4356;font-family:Montserrat,Arial,sans-serif;font-size:14px;line-height:1.7;padding:16px;resize:none}.proposal-row{display:grid;grid-template-columns:1.1fr .8fr 1fr 42px;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid #EAE7E1}.proposal-row:last-child{border-bottom:0}.version{font-weight:600;color:#1E2D5A}.date{font-size:13px;color:#77716c}.langs{display:flex;gap:7px}.lang{border-radius:999px;padding:5px 8px;font-family:Oswald,sans-serif;font-size:10px;letter-spacing:.12em;text-transform:uppercase;background:rgba(30,45,90,.12);color:#1E2D5A}.lang.off{background:#eee;color:#aaa29a}.download{width:34px;height:34px;border:1px solid #E0DDD8;border-radius:4px;display:grid;place-items:center;color:#C9902A;font-size:16px}.destinations{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.dest-card{background:#fff;border:1px solid #E0DDD8;border-radius:6px;overflow:hidden}.thumb{height:118px;background:#141E3D}.thumb img{width:100%;height:100%;object-fit:cover;display:block}.dest-body{padding:12px}.dest-name{font-weight:600;font-size:14px;color:#1E2D5A;margin-bottom:8px}.dest-tag{display:inline-flex;font-family:Oswald,sans-serif;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#8c6117;background:rgba(201,144,42,.14);border-radius:999px;padding:5px 8px}
+  </style>
 </head>
 <body>
-<div class="app">
-<aside class="sidebar">
-      <div class="logo">Viva Brasil<br>Travel Studio</div>
-      <div class="logo-sub">Private proposal system</div>
-      <nav class="nav"><a class="" href="01-dashboard.html">Dashboard</a><a class="active" href="02-client.html">Clients</a><a class="" href="03-intake.html">Travel Stories</a><a class="" href="04-builder.html">Proof Library</a><a class="" href="04-builder.html">Media Library</a><a class="" href="05-preview.html">Proposals</a></nav>
-      <div class="sidebar-footer">Internal AI-assisted workspace for client briefs, story matching, proof blocks, and first-ideas proposals.</div>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="logo">Viva Brasil<br>Travel Studio<span>Proposal Workspace</span></div>
+      <nav class="nav">
+        <a href="01-dashboard.html">Dashboard</a>
+        <a class="active" href="02-client.html">Clients</a>
+        <a href="04-stories.html">Travel Stories</a>
+        <a href="05-draft.html">Proposals</a>
+      </nav>
     </aside>
-<main class="main">
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <div class="eyebrow">Client Detail</div>
+          <h1 class="h1">Klaus &amp; Margot Brenner</h1>
+          <p class="sub">Swiss couple, 14 days, Pantanal + Lençóis Maranhenses. Last updated 2 days ago.</p>
+          <div class="meta">
+            <span class="badge gold">Proposal Sent</span>
+            <span class="badge grey">Switzerland</span>
+            <span class="badge green">Couple Trip</span>
+            <span class="badge grey">14 Days</span>
+          </div>
+        </div>
+      </header>
 
-<div class="topbar"><div><div class="eyebrow">Client workspace</div><h1>Markus Keller</h1><p class="lead">Full profile, call insights, and Daniel's working brief for the first-ideas proposal.</p></div><span class="badge gold">Needs Proposal</span></div>
-<div class="two-col">
-  <section class="card card-pad"><h2 class="card-title">Client Profile</h2><div class="field-list">
-    <div class="field"><div class="k">Name</div><div class="v">Markus Keller</div></div><div class="field"><div class="k">Country</div><div class="v">Germany</div></div><div class="field"><div class="k">Language</div><div class="v">German</div></div><div class="field"><div class="k">Referred by</div><div class="v">Matthias Bauer</div></div><div class="field"><div class="k">Travellers</div><div class="v">2, couple, no children</div></div><div class="field"><div class="k">Previous Brazil</div><div class="v">No</div></div><div class="field"><div class="k">Trip length</div><div class="v">14 days</div></div><div class="field"><div class="k">Travel dates</div><div class="v">July 2026</div></div><div class="field"><div class="k">Budget</div><div class="v">USD 12,000–15,000</div></div><div class="field"><div class="k">Arrival</div><div class="v">São Paulo</div></div><div class="field"><div class="k">Main interests</div><div class="v">Nature, wildlife, unusual transport</div></div><div class="field"><div class="k">Concerns</div><div class="v">Long domestic flights</div></div><div class="field"><div class="k">Comfort level</div><div class="v">Mid-high</div></div><div class="field"><div class="k">Status</div><div class="v"><span class="badge gold">Needs Proposal</span></div></div><div class="field"><div class="k">Next action</div><div class="v"><input class="input" value="Generate first-ideas proposal draft"></div></div>
-  </div></section>
-  <section class="card card-pad"><h2 class="card-title">Call Insights</h2><div class="field-list">
-    <div class="field"><div class="k">Asked for</div><div class="v">Pantanal and something coastal</div></div><div class="field"><div class="k">Reacted to</div><div class="v">Jaguar watching, boat transport</div></div><div class="field"><div class="k">Hesitated about</div><div class="v">Very remote lodges</div></div><div class="field"><div class="k">Corrected</div><div class="v">Thought Amazon and Pantanal could be combined in 2 weeks</div></div><div class="field"><div class="k">Daniel's instinct</div><div class="v">Pantanal North + Lençóis + Delta is the right route</div></div><div class="field"><div class="k">Proposal angle</div><div class="v">Contrast between wildlife intensity and open lagoon relaxation</div></div>
-  </div></section>
-</div>
-<section class="card card-pad" style="margin-top:22px"><h2 class="card-title">Travel Brief</h2><p class="brief">Markus and his partner are first-time Brazil travellers from Germany. They want genuine wildlife contact and transport that feels like part of the experience. The Pantanal North jaguar circuit followed by Lençóis Maranhenses and the Parnaíba Delta gives them the contrast they are looking for without pushing comfort limits.</p><div class="actions"><a class="btn gold" href="04-builder.html">Generate Proposal Draft</a></div></section>
+      <section class="grid">
+        <article class="panel">
+          <div class="panel-head">
+            <div class="label">Call Notes</div>
+            <a class="edit" href="#">Edit</a>
+          </div>
+          <div class="panel-body">
+            <textarea class="notes" readonly>Klaus and Margot are travelling from Zurich and want a first Brazil trip with nature as the centre. They liked the idea of the Pantanal because wildlife feels concrete and easy to understand. They do not want a trip that feels rushed. Margot asked several questions about comfort and road time. Klaus reacted well to the Delta crossing and to the idea that transport can be part of the experience. Budget is comfortable if the route feels well judged. They prefer German proposal language, with French available for Margot if needed.</textarea>
+          </div>
+        </article>
 
-</main>
-</div>
+        <article class="panel" data-tour-id="client-proposals">
+          <div class="panel-head">
+            <div class="label">Proposals</div>
+            <a class="edit" href="05-draft.html">Open latest</a>
+          </div>
+          <div class="panel-body">
+            <div class="proposal-row">
+              <div class="version">Proposal v2</div>
+              <div class="date">May 12, 2026</div>
+              <div class="langs"><span class="lang">DE</span><span class="lang">FR</span><span class="lang off">PT</span></div>
+              <div class="download">↓</div>
+            </div>
+            <div class="proposal-row">
+              <div class="version">Proposal v1</div>
+              <div class="date">May 9, 2026</div>
+              <div class="langs"><span class="lang">DE</span><span class="lang off">FR</span><span class="lang off">PT</span></div>
+              <div class="download">↓</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel large">
+          <div class="panel-head">
+            <div class="label">Selected Destinations</div>
+            <span class="date">Matched from call profile</span>
+          </div>
+          <div class="panel-body">
+            <div class="destinations">
+              <div class="dest-card">
+                <div class="thumb"><img src="assets/images/pantanal-araras.webp" alt="Pantanal"></div>
+                <div class="dest-body"><div class="dest-name">Northern Pantanal</div><span class="dest-tag">Pantanal</span></div>
+              </div>
+              <div class="dest-card">
+                <div class="thumb"><img src="assets/images/lencois-maranhenses.webp" alt="Lençóis Maranhenses"></div>
+                <div class="dest-body"><div class="dest-name">Lençóis Maranhenses</div><span class="dest-tag">Lençóis</span></div>
+              </div>
+              <div class="dest-card">
+                <div class="thumb"><img src="assets/images/delta-sunset.webp" alt="Parnaíba Delta"></div>
+                <div class="dest-body"><div class="dest-name">Parnaíba Delta</div><span class="dest-tag">Delta</span></div>
+              </div>
+              <div class="dest-card">
+                <div class="thumb"><img src="assets/images/lencois-offroad.webp" alt="Open vehicle route"></div>
+                <div class="dest-body"><div class="dest-name">Open Vehicle Crossing</div><span class="dest-tag">Transport</span></div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+  <script src="assets/tour.js"></script>
 </body>
 </html>

@@ -32,13 +32,13 @@
         <a class="btn gold" href="02-intake.html">New Client</a>
       </header>
 
-      <section class="cards">
+      <section class="cards" data-tour-id="dashboard-cards">
         <article class="stat"><strong>3</strong><span>Needs Proposal</span></article>
         <article class="stat navy"><strong>2</strong><span>Waiting for Reply</span></article>
         <article class="stat green"><strong>1</strong><span>Follow Up This Week</span></article>
       </section>
 
-      <section class="panel">
+      <section class="panel" data-tour-id="client-list">
         <div class="panel-head">
           <div class="label">Recent Clients</div>
           <div class="hint">Click any row to review the call intake</div>
@@ -54,28 +54,28 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="client-row" onclick="window.location.href='02-intake.html'">
+            <tr class="client-row" onclick="window.location.href='02-client.html'">
               <td>Markus Keller</td>
               <td>Germany</td>
               <td><span class="badge gold">Needs Proposal</span></td>
               <td>Send first proposal</td>
               <td>3 days ago</td>
             </tr>
-            <tr class="client-row" onclick="window.location.href='02-intake.html'">
+            <tr class="client-row" onclick="window.location.href='02-client.html'">
               <td>Heidi Zimmermann</td>
               <td>Switzerland</td>
               <td><span class="badge grey">Waiting for Reply</span></td>
               <td>Follow up</td>
               <td>1 week ago</td>
             </tr>
-            <tr class="client-row" onclick="window.location.href='02-intake.html'">
+            <tr class="client-row" onclick="window.location.href='02-client.html'">
               <td>Rolf &amp; Brigitte Meier</td>
               <td>Switzerland</td>
               <td><span class="badge green">Follow Up</span></td>
               <td>Call this week</td>
               <td>2 weeks ago</td>
             </tr>
-            <tr class="client-row" onclick="window.location.href='02-intake.html'">
+            <tr class="client-row" onclick="window.location.href='02-client.html'">
               <td>Hans &amp; Ursula Weber</td>
               <td>Austria</td>
               <td><span class="badge navy">Confirmed</span></td>
@@ -88,5 +88,6 @@
       <p class="footer-note">Static client approval mockup. Data is realistic placeholder content.</p>
     </main>
   </div>
+  <script src="assets/tour.js"></script>
 </body>
 </html>
