@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in | Viva Brasil Travel Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600&family=Oswald:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600&family=Oswald:wght@400;500;600&display=swap"></noscript>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Montserrat, Arial, sans-serif;
+      background: #141E3D;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Background texture */
+    body::before {
+      content: '';
+      position: absolute;
+      width: 800px; height: 800px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,144,42,0.06);
+      top: -300px; right: -250px;
+      pointer-events: none;
+    }
+    body::after {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,144,42,0.04);
+      bottom: -180px; left: -150px;
+      pointer-events: none;
+    }
+
+    .login-wrap {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 380px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Logo */
+    .logo-img {
+      height: 90px;
+      margin-bottom: 0;
+    }
+
+    /* App label */
+    .app-label {
+      font-family: Oswald, sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      margin-top: -8px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Slogan */
+    .slogan {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px;
+      letter-spacing: 0.04em;
+      color: #ffffff;
+      line-height: 1;
+      margin-bottom: 2.75rem;
+      text-align: center;
+    }
+    .slogan span { color: #C9902A; }
+
+    /* Form */
+    .form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .field-label {
+      font-family: Oswald, sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 0.35rem;
+      display: block;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .input {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 4px;
+      padding: 0.85rem 1rem;
+      font-family: Montserrat, sans-serif;
+      font-size: 14px;
+      color: rgba(255,255,255,0.28);
+      width: 100%;
+    }
+
+    .btn-signin {
+      width: 100%;
+      background: #C9902A;
+      border: none;
+      border-radius: 4px;
+      padding: 0.95rem 1rem;
+      font-family: Oswald, sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #141E3D;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      transition: background 0.15s;
+    }
+    .btn-signin:hover { background: #a87820; }
+
+    /* Divider */
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: rgba(201,144,42,0.2);
+      margin: 2.25rem auto;
+    }
+
+    /* Footer */
+    .login-footer {
+      font-family: Oswald, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.14);
+      text-align: center;
+    }
+
+    .enter-link {
+      display: block;
+      margin-top: 2rem;
+      font-family: Oswald, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(201,144,42,0.4);
+      text-decoration: none;
+      text-align: center;
+    }
+    .enter-link:hover { color: #C9902A; }
+  </style>
+</head>
+<body>
+  <div class="login-wrap">
+
+    <img src="assets/brand/logo-white.png" alt="Viva Brasil Travel" class="logo-img">
+    <div class="app-label">Studio</div>
+
+    <div class="slogan">Where every trip <span>begins.</span></div>
+
+    <div class="form">
+      <div class="field">
+        <label class="field-label">Email</label>
+        <div class="input">daniel@vivabrasil.com</div>
+      </div>
+      <div class="field">
+        <label class="field-label">Password</label>
+        <div class="input">••••••••••••</div>
+      </div>
+      <a href="01-dashboard.html" class="btn-signin">Sign in</a>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="login-footer">Viva Brasil Travel &nbsp;·&nbsp; Private access</div>
+
+  </div>
+</body>
+</html>
