@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clients | Viva Brasil Travel Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600&family=Oswald:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;background:#F4F2EE;color:#1E2D5A;font-family:Montserrat,Arial,sans-serif}
+    .app{display:flex;min-height:100vh}
+    .sidebar{position:fixed;inset:0 auto 0 0;width:200px;background:#141E3D;color:#fff;padding:28px 0;display:flex;flex-direction:column}
+    .logo{font-family:"Bebas Neue",sans-serif;color:#C9902A;font-size:31px;line-height:.92;letter-spacing:.035em;padding:0 24px 34px}
+    .logo span{display:block;color:rgba(255,255,255,.58);font-family:Oswald,sans-serif;font-size:9px;letter-spacing:.42em;margin-top:8px}
+    .nav{display:grid;gap:6px}
+    .nav a{color:rgba(255,255,255,.68);font-family:Oswald,sans-serif;font-size:13px;letter-spacing:.08em;text-decoration:none;text-transform:uppercase;padding:14px 22px;border-left:4px solid transparent}
+    .nav a:hover,.nav a.active{color:#C9902A;background:rgba(255,255,255,.045);border-left-color:#C9902A}
+    .main{margin-left:200px;width:calc(100% - 200px);padding:38px 46px 54px}
+    .topbar{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:34px}
+    .eyebrow{font-family:Oswald,sans-serif;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#C9902A;margin-bottom:8px}
+    .h1{font-family:"Bebas Neue",sans-serif;font-size:54px;line-height:.95;letter-spacing:.025em;color:#1E2D5A;margin:0}
+    .sub{margin:8px 0 0;color:#6d6a65;font-size:14px;line-height:1.65}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 20px;border-radius:4px;border:1px solid transparent;font-family:Oswald,sans-serif;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;cursor:pointer}
+    .btn.gold{background:#C9902A;color:#141E3D}
+    .btn.gold:hover{background:#a87820}
+
+    /* Filter bar */
+    .filters{display:flex;gap:8px;margin-bottom:24px;align-items:center}
+    .filter-btn{border:1px solid #D5D0C9;background:#fff;color:#6d6a65;border-radius:999px;padding:7px 16px;font-family:Oswald,sans-serif;font-size:11px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+    .filter-btn.active{background:#1E2D5A;color:#fff;border-color:#1E2D5A}
+    .filter-count{margin-left:4px;opacity:.55}
+
+    /* Client list */
+    .client-list{display:grid;gap:12px}
+    .client-card{background:#fff;border:1px solid #E0DDD8;border-radius:6px;padding:22px 26px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;cursor:pointer;text-decoration:none;color:inherit;box-shadow:0 4px 16px rgba(20,30,61,.04);transition:box-shadow .15s,border-color .15s}
+    .client-card:hover{border-color:#C9902A;box-shadow:0 8px 28px rgba(20,30,61,.10)}
+    .client-left{}
+    .client-name{font-family:"Bebas Neue",sans-serif;font-size:26px;letter-spacing:.02em;color:#1E2D5A;line-height:1;margin-bottom:6px}
+    .client-meta{font-size:13px;color:#77716c;margin-bottom:12px}
+    .client-meta span{margin-right:14px}
+    .client-tags{display:flex;gap:7px;flex-wrap:wrap}
+    .tag{display:inline-flex;align-items:center;border-radius:999px;padding:5px 10px;font-family:Oswald,sans-serif;font-size:10px;letter-spacing:.12em;text-transform:uppercase;background:rgba(201,144,42,.12);color:#8c6117}
+    .client-right{display:flex;flex-direction:column;align-items:flex-end;gap:10px;min-width:160px}
+    .badge{display:inline-flex;align-items:center;border-radius:999px;padding:5px 12px;font-size:11px;font-weight:600;white-space:nowrap}
+    .badge.gold{background:rgba(201,144,42,.15);color:#8c6117}
+    .badge.grey{background:#ebe8e2;color:#6f6a64}
+    .badge.green{background:rgba(26,107,69,.13);color:#1A6B45}
+    .badge.navy{background:rgba(30,45,90,.12);color:#1E2D5A}
+    .badge.red{background:rgba(180,40,40,.1);color:#8b1a1a}
+    .client-date{font-size:12px;color:#a09a93;font-family:Oswald,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+    .arrow{color:#C9902A;font-size:18px;margin-top:4px}
+
+    .section-label{font-family:Oswald,sans-serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#a09a93;margin:28px 0 10px;padding-bottom:8px;border-bottom:1px solid #E0DDD8}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="logo">Viva Brasil<br>Travel Studio<span>Proposal Workspace</span></div>
+      <nav class="nav">
+        <a href="01-dashboard.html">Dashboard</a>
+        <a class="active" href="clients.html">Clients</a>
+        <a href="04-stories.html">Travel Stories</a>
+        <a href="05-draft.html">Proposals</a>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <div class="eyebrow">All Clients</div>
+          <h1 class="h1">Clients</h1>
+          <p class="sub">Every client Daniel has worked with — past and present.</p>
+        </div>
+        <a class="btn gold" href="02-intake.html">New Client</a>
+      </header>
+
+      <div class="filters">
+        <button class="filter-btn active">All <span class="filter-count">6</span></button>
+        <button class="filter-btn">Active <span class="filter-count">4</span></button>
+        <button class="filter-btn">Confirmed <span class="filter-count">1</span></button>
+        <button class="filter-btn">Past <span class="filter-count">1</span></button>
+      </div>
+
+      <div class="section-label">Needs attention</div>
+      <div class="client-list">
+
+        <a class="client-card" href="02-client.html">
+          <div class="client-left">
+            <div class="client-name">Markus Keller</div>
+            <div class="client-meta">
+              <span>Germany</span>
+              <span>12 days</span>
+              <span>Solo traveller</span>
+            </div>
+            <div class="client-tags">
+              <span class="tag">Amazon</span>
+              <span class="tag">Pantanal</span>
+            </div>
+          </div>
+          <div class="client-right">
+            <span class="badge gold">Needs Proposal</span>
+            <div class="client-date">3 days ago</div>
+            <div class="arrow">→</div>
+          </div>
+        </a>
+
+        <a class="client-card" href="02-client.html">
+          <div class="client-left">
+            <div class="client-name">Klaus &amp; Margot Brenner</div>
+            <div class="client-meta">
+              <span>Switzerland</span>
+              <span>14 days</span>
+              <span>Couple</span>
+            </div>
+            <div class="client-tags">
+              <span class="tag">Pantanal</span>
+              <span class="tag">Lençóis Maranhenses</span>
+              <span class="tag">Parnaíba Delta</span>
+            </div>
+          </div>
+          <div class="client-right">
+            <span class="badge grey">Waiting for Reply</span>
+            <div class="client-date">5 days ago</div>
+            <div class="arrow">→</div>
+          </div>
+        </a>
+
+        <a class="client-card" href="02-client.html">
+          <div class="client-left">
+            <div class="client-name">Pierre &amp; Sylvie Laurent</div>
+            <div class="client-meta">
+              <span>France</span>
+              <span>9 days</span>
+              <span>Couple</span>
+            </div>
+            <div class="client-tags">
+              <span class="tag">Lençóis Maranhenses</span>
+              <span class="tag">Parnaíba Delta</span>
+            </div>
+          </div>
+          <div class="client-right">
+            <span class="badge gold">Needs Proposal</span>
+            <div class="client-date">1 week ago</div>
+            <div class="arrow">→</div>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="section-label">In progress</div>
+      <div class="client-list">
+
+        <a class="client-card" href="02-client.html">
+          <div class="client-left">
+            <div class="client-name">Rolf &amp; Brigitte Meier</div>
+            <div class="client-meta">
+              <span>Switzerland</span>
+              <span>16 days</span>
+              <span>Couple</span>
+            </div>
+            <div class="client-tags">
+              <span class="tag">Pantanal</span>
+              <span class="tag">Chapada dos Veadeiros</span>
+            </div>
+          </div>
+          <div class="client-right">
+            <span class="badge green">Follow Up</span>
+            <div class="client-date">2 weeks ago</div>
+            <div class="arrow">→</div>
+          </div>
+        </a>
+
+        <a class="client-card" href="02-client.html">
+          <div class="client-left">
+            <div class="client-name">Hans &amp; Ursula Weber</div>
+            <div class="client-meta">
+              <span>Austria</span>
+              <span>18 days</span>
+              <span>Couple</span>
+            </div>
+            <div class="client-tags">
+              <span class="tag">Amazon</span>
+              <span class="tag">Pantanal</span>
+              <span class="tag">Rio de Janeiro</span>
+            </div>
+          </div>
+          <div class="client-right">
+            <span class="badge navy">Confirmed</span>
+            <div class="client-date">3 weeks ago</div>
+            <div class="arrow">→</div>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="section-label">Past clients</div>
+      <div class="client-list">
+
+        <a class="client-card" href="02-client.html">
+          <div class="client-left">
+            <div class="client-name">Heidi Zimmermann</div>
+            <div class="client-meta">
+              <span>Switzerland</span>
+              <span>10 days</span>
+              <span>Solo traveller</span>
+            </div>
+            <div class="client-tags">
+              <span class="tag">Lençóis Maranhenses</span>
+              <span class="tag">Rio de Janeiro</span>
+            </div>
+          </div>
+          <div class="client-right">
+            <span class="badge grey">Trip Completed</span>
+            <div class="client-date">March 2026</div>
+            <div class="arrow">→</div>
+          </div>
+        </a>
+
+      </div>
+    </main>
+  </div>
+  <script src="assets/tour.js"></script>
+</body>
+</html>
