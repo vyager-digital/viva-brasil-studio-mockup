@@ -193,6 +193,9 @@
     <div class="login-footer">Viva Brasil Travel &nbsp;·&nbsp; Private access</div>
 
   </div>
-<script>sessionStorage.removeItem('studio_auth');</script>
+<script>
+  sessionStorage.removeItem('studio_auth');
+  if (!sessionStorage.getItem('intro_seen')) { window.location.replace('00-intro.html'); }
+</script>
 </body>
 </html>
