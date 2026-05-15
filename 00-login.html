@@ -185,7 +185,7 @@
         <label class="field-label">Password</label>
         <div class="input">••••••••••••</div>
       </div>
-      <a href="01-dashboard.html" class="btn-signin">Sign in</a>
+      <a href="01-dashboard.html" class="btn-signin" onclick="sessionStorage.setItem('studio_auth','1')">Sign in</a>
     </div>
 
     <div class="divider"></div>
@@ -193,5 +193,6 @@
     <div class="login-footer">Viva Brasil Travel &nbsp;·&nbsp; Private access</div>
 
   </div>
+<script>sessionStorage.removeItem('studio_auth');</script>
 </body>
 </html>
