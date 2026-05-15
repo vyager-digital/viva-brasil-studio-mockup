@@ -240,6 +240,114 @@
       }
       .tour-close-btn:hover { color: #fff; }
 
+      /* ── Mobile layout ────────────────────────────────── */
+      @media (max-width: 767px) {
+        html, body { overflow-x: hidden; }
+
+        /* Sidebar: hidden off-left, slides in as drawer */
+        .sidebar {
+          transform: translateX(-200px);
+          transition: transform 0.26s cubic-bezier(.4,0,.2,1);
+          z-index: 600;
+        }
+        .sidebar.mob-open {
+          transform: translateX(0);
+          box-shadow: 8px 0 32px rgba(0,0,0,.35);
+        }
+
+        /* Scrim behind open drawer */
+        .mob-scrim {
+          display: none;
+          position: fixed;
+          inset: 0;
+          background: rgba(0,0,0,.45);
+          z-index: 580;
+        }
+        .mob-scrim.mob-open { display: block; }
+
+        /* Hamburger button */
+        .mob-menu-btn {
+          position: fixed;
+          top: 12px;
+          left: 12px;
+          z-index: 700;
+          width: 40px;
+          height: 40px;
+          background: #141E3D;
+          border: none;
+          border-radius: 6px;
+          color: #C9902A;
+          font-size: 20px;
+          line-height: 1;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 2px 12px rgba(0,0,0,.28);
+          padding: 0;
+        }
+
+        /* Main: full width, clear hamburger */
+        .main {
+          margin-left: 0 !important;
+          width: 100% !important;
+          padding-left: 20px !important;
+          padding-right: 20px !important;
+          padding-top: 68px !important;
+        }
+        /* Draft page bar is first child of .main — indent it to clear hamburger */
+        .bar { padding-left: 60px !important; flex-wrap: wrap !important; gap: 10px !important; }
+        .bar-actions { flex-wrap: wrap !important; gap: 8px !important; }
+
+        /* Stat cards: single column */
+        .cards { grid-template-columns: 1fr !important; gap: 12px !important; }
+
+        /* Tables: horizontal scroll */
+        .panel { overflow-x: auto; }
+        table { min-width: 500px; }
+        th, td { padding: 12px 16px !important; white-space: nowrap; }
+
+        /* Topbar: stack button below heading */
+        .topbar { flex-direction: column !important; align-items: flex-start !important; gap: 14px !important; }
+
+        /* 2-col grids → 1 col */
+        .grid { grid-template-columns: 1fr !important; }
+        .panel.large { grid-column: 1 !important; }
+
+        /* Destinations: 4-col → 2-col */
+        .destinations { grid-template-columns: 1fr 1fr !important; }
+
+        /* Client cards: stack right below left */
+        .client-card { grid-template-columns: 1fr !important; }
+        .client-right { flex-direction: row !important; flex-wrap: wrap !important; align-items: center !important; min-width: 0 !important; }
+        .arrow { display: none; }
+
+        /* Proposal rows: drop date column */
+        .proposal-row { grid-template-columns: 1fr auto auto !important; gap: 10px !important; }
+        .proposal-row .date { display: none; }
+
+        /* Stories top header: stack */
+        .top { flex-direction: column !important; gap: 14px !important; }
+
+        /* Proposal doc: readable on narrow screen */
+        .wrap { padding: 0 12px !important; margin: 16px auto 40px !important; }
+        .doc-body { padding: 24px 20px 36px !important; }
+        .doc-meta { grid-template-columns: 1fr 1fr !important; }
+        .hero-copy { padding: 24px 20px !important; }
+        .trip-title { font-size: clamp(36px, 10vw, 60px) !important; }
+        .day { grid-template-columns: 72px 1fr !important; gap: 12px !important; }
+        .photo-grid.two, .photo-grid.three { grid-template-columns: 1fr !important; }
+        .services { grid-template-columns: 1fr !important; }
+        .investment { grid-template-columns: 1fr !important; gap: 14px !important; }
+        .price { text-align: left !important; }
+        .testimonial-grid { grid-template-columns: 1fr !important; }
+
+        /* Intake form */
+        .shell { margin-top: 16px !important; }
+
+        /* Review: bottom row stack */
+        .bottom { flex-direction: column !important; align-items: flex-start !important; gap: 16px !important; }
+      }
     `;
     document.head.appendChild(style);
   }
@@ -331,9 +439,30 @@
     }
   });
 
+  function addMobileNav() {
+    if (window.innerWidth > 767) return;
+    if (document.querySelector('.mob-menu-btn')) return;
+    const sidebar = document.querySelector('.sidebar');
+    if (!sidebar) return;
+    const scrim = document.createElement('div');
+    scrim.className = 'mob-scrim';
+    document.body.appendChild(scrim);
+    const btn = document.createElement('button');
+    btn.className = 'mob-menu-btn';
+    btn.setAttribute('aria-label', 'Open menu');
+    btn.innerHTML = '&#9776;';
+    document.body.appendChild(btn);
+    function open() { sidebar.classList.add('mob-open'); scrim.classList.add('mob-open'); btn.innerHTML = '&#10005;'; }
+    function close() { sidebar.classList.remove('mob-open'); scrim.classList.remove('mob-open'); btn.innerHTML = '&#9776;'; }
+    btn.addEventListener('click', () => sidebar.classList.contains('mob-open') ? close() : open());
+    scrim.addEventListener('click', close);
+    sidebar.querySelectorAll('.nav a').forEach(a => a.addEventListener('click', close));
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     ensureStyles();
     addPresentButton();
+    addMobileNav();
     const tourParam = new URLSearchParams(window.location.search).get('tour');
     if (tourParam) {
       const index = Math.max(1, Number(tourParam)) - 1;
