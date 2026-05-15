@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viva Brasil Travel Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600&family=Oswald:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600&family=Oswald:wght@400;500;600&display=swap"></noscript>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      font-family: Montserrat, Arial, sans-serif;
+      background: #0d1628;
+      position: relative;
+    }
+
+    .bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('assets/images/lm-aerial.webp');
+      background-size: cover;
+      background-position: center 30%;
+      z-index: 0;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(10, 16, 35, 0.92) 0%,
+        rgba(10, 16, 35, 0.75) 50%,
+        rgba(10, 16, 35, 0.30) 100%
+      );
+      z-index: 1;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 8vw;
+      max-width: 720px;
+    }
+
+    .kicker {
+      font-family: Oswald, sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: #C9902A;
+      margin-bottom: 2.5rem;
+    }
+
+    .body-text {
+      font-size: 1.125rem;
+      font-weight: 400;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.88);
+      margin-bottom: 3.5rem;
+      max-width: 580px;
+    }
+
+    .body-text strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .btn-enter {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: #C9902A;
+      color: #0d1628;
+      font-family: Oswald, sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.85rem 2rem;
+      border-radius: 3px;
+      transition: background 0.15s;
+      width: fit-content;
+    }
+    .btn-enter:hover { background: #a87820; }
+    .btn-enter svg { flex-shrink: 0; }
+
+    .logo-lockup {
+      position: absolute;
+      top: 2.5rem;
+      left: 8vw;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+    }
+    .logo-lockup img {
+      height: 56px;
+    }
+    .logo-lockup .studio-label {
+      font-family: Oswald, sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+      margin-top: -4px;
+      padding-left: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg"></div>
+  <div class="overlay"></div>
+
+  <div class="logo-lockup">
+    <img src="assets/brand/logo-white.png" alt="Viva Brasil Travel">
+    <span class="studio-label">Studio</span>
+  </div>
+
+  <div class="content">
+
+    <div class="kicker">Viva Brasil Travel &nbsp;·&nbsp; A different kind of trip</div>
+
+    <p class="body-text">
+      He speaks his clients' language, understands their culture, and knows Brazil the way most locals do not. <strong>Building a trip is closer to producing a film than booking travel</strong> — there is a script, a cast, locations chosen for what they do to the people in them. The itinerary is built around contrast: raw nature against modern architecture, wildlife alertness against hammock stillness. Clients arrive thinking they know what Brazil is. <strong>They leave with something they will spend the rest of their lives describing to other people.</strong>
+    </p>
+
+    <a href="00-login.html" class="btn-enter">
+      Enter Studio
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path d="M2 7h10M8 3l4 4-4 4" stroke="#0d1628" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+
+  </div>
+
+</body>
+</html>
