@@ -34,10 +34,10 @@
       position: fixed;
       inset: 0;
       background: linear-gradient(
-        105deg,
-        rgba(8, 14, 30, 0.97) 0%,
-        rgba(8, 14, 30, 0.90) 40%,
-        rgba(8, 14, 30, 0.50) 100%
+        to right,
+        rgba(8, 14, 30, 0.98) 0%,
+        rgba(8, 14, 30, 0.95) 50%,
+        rgba(8, 14, 30, 0.60) 100%
       );
       z-index: 1;
     }
@@ -77,14 +77,41 @@
     /* Two-column layout */
     .columns {
       display: grid;
-      grid-template-columns: 1fr 1.3fr;
+      grid-template-columns: 1.3fr 1fr;
       gap: 5vw;
       flex: 1;
       align-items: center;
     }
 
-    /* Left column */
+    /* Left column — text */
     .col-left {
+      border-right: 1px solid rgba(255,255,255,0.07);
+      padding-right: 4vw;
+    }
+
+    .body-text p {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 1.1rem;
+    }
+    .body-text p:last-child { margin-bottom: 0; }
+
+    .body-text .standout {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .rule {
+      width: 32px;
+      height: 1px;
+      background: rgba(201,144,42,0.35);
+      margin: 1.25rem 0;
+    }
+
+    /* Right column — heading + button */
+    .col-right {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -110,7 +137,7 @@
       line-height: 1;
     }
 
-    .col-left-bottom {
+    .col-right-bottom {
       margin-top: auto;
       padding-top: 2rem;
     }
@@ -132,33 +159,6 @@
       transition: background 0.15s;
     }
     .btn-enter:hover { background: #a87820; }
-
-    /* Right column */
-    .col-right {
-      border-left: 1px solid rgba(255,255,255,0.07);
-      padding-left: 4vw;
-    }
-
-    .body-text p {
-      font-size: 13.5px;
-      font-weight: 400;
-      line-height: 1.75;
-      color: rgba(255,255,255,0.68);
-      margin-bottom: 1rem;
-    }
-    .body-text p:last-child { margin-bottom: 0; }
-
-    .body-text .standout {
-      color: rgba(255,255,255,0.92);
-      font-weight: 500;
-    }
-
-    .rule {
-      width: 32px;
-      height: 1px;
-      background: rgba(201,144,42,0.3);
-      margin: 1.1rem 0;
-    }
   </style>
 </head>
 <body>
@@ -177,21 +177,6 @@
     <div class="columns">
 
       <div class="col-left">
-        <div>
-          <div class="section-label">Business Context</div>
-          <div class="heading">The gap is in<br>the response<br>time</div>
-        </div>
-        <div class="col-left-bottom">
-          <a href="00-login.html" class="btn-enter">
-            Enter Studio
-            <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
-              <path d="M2 7h10M8 3l4 4-4 4" stroke="#0a1020" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="col-right">
         <div class="body-text">
           <p>Viva Brasil Travel has something most operators spend careers trying to build: 30 years of destination knowledge and a founder who grew up in Switzerland and built his career in Brazil.</p>
           <p>He speaks his clients' language, understands their culture, and knows Brazil the way most locals do not. <span class="standout">Building a trip is closer to producing a film than booking travel</span> — there is a script, a cast, locations chosen for what they do to the people in them. The itinerary is built around contrast: raw nature against modern architecture, wildlife alertness against hammock stillness. Clients arrive thinking they know what Brazil is. <span class="standout">They leave with something they will spend the rest of their lives describing to other people.</span></p>
@@ -199,6 +184,21 @@
           <p>The time between a call and a proposal arriving in the client's inbox. That is where leads go quiet.</p>
           <p>During peak months — March through April, July through August — leads arrive faster than proposals can follow. Every proposal is assembled by hand: destination texts, photos, translations, itinerary. The ceiling is not demand. It is capacity. Some revenue slips away before Daniel can secure it.</p>
           <p><span class="standout">This is what we are building: a private tool that closes that gap.</span></p>
+        </div>
+      </div>
+
+      <div class="col-right">
+        <div>
+          <div class="section-label">Business Context</div>
+          <div class="heading">The gap is in<br>the response<br>time</div>
+        </div>
+        <div class="col-right-bottom">
+          <a href="00-login.html" class="btn-enter">
+            Enter Studio
+            <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
+              <path d="M2 7h10M8 3l4 4-4 4" stroke="#0a1020" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
         </div>
       </div>
 
