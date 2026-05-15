@@ -29,8 +29,9 @@ body{font-weight:400;letter-spacing:-.01em;}
 a{text-decoration:none;color:inherit}
 .app{min-height:100vh;display:grid;grid-template-columns:280px minmax(900px,1fr);}
 .sidebar{background:linear-gradient(180deg,var(--navy-deep),#101833);color:#fff;padding:30px 22px;position:sticky;top:0;height:100vh;box-shadow:8px 0 30px rgba(20,30,61,.16)}
-.logo{font-family:'Bebas Neue',Impact,sans-serif;color:var(--gold);font-size:36px;line-height:.96;letter-spacing:.035em;margin-bottom:8px;}
-.logo-sub{font-family:'Oswald',Arial,sans-serif;text-transform:uppercase;letter-spacing:.14em;color:rgba(244,242,238,.58);font-size:11px;margin-bottom:42px;}
+.logo{display:block;text-decoration:none;text-align:center;margin-bottom:42px;}
+.logo img{width:152px;display:block;margin:0 auto;}
+.logo span{display:block;color:rgba(255,255,255,.4);font-family:'Oswald',Arial,sans-serif;font-size:9px;letter-spacing:.42em;text-transform:uppercase;text-align:center;margin-top:-2px;}
 .nav{display:flex;flex-direction:column;gap:8px;margin-top:20px;}
 .nav a{font-family:'Oswald',Arial,sans-serif;text-transform:uppercase;letter-spacing:.08em;font-size:14px;color:rgba(255,255,255,.68);padding:13px 14px;border-radius:14px;border:1px solid transparent;display:flex;align-items:center;gap:10px;}
 .nav a:before{content:'';width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.22)}
@@ -66,8 +67,7 @@ tr:last-child td{border-bottom:0}.name{font-weight:600;color:var(--navy-deep)}
 <body>
 <div class="app">
 <aside class="sidebar">
-      <div class="logo">Viva Brasil<br>Travel Studio</div>
-      <div class="logo-sub">Private proposal system</div>
+      <a class="logo" href="00-login.html"><img src="assets/brand/logo-white.png" alt="Viva Brasil Travel"><span>Studio</span></a>
       <nav class="nav"><a class="" href="01-dashboard.html">Dashboard</a><a class="" href="02-client.html">Clients</a><a class="active" href="03-intake.html">Travel Stories</a><a class="" href="04-builder.html">Proof Library</a><a class="" href="04-builder.html">Media Library</a><a class="" href="05-preview.html">Proposals</a></nav>
       <div class="sidebar-footer">Internal AI-assisted workspace for client briefs, story matching, proof blocks, and first-ideas proposals.</div>
     </aside>
