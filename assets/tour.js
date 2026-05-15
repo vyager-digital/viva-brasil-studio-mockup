@@ -301,6 +301,10 @@
 
         /* Filter pills: wrap onto next line */
         .filters { flex-wrap: wrap !important; }
+
+        /* Present button: hide on mobile — desktop-only feature */
+        .tour-present-btn { display: none !important; }
+        .tour-panel { display: none !important; }
         /* Draft page bar is first child of .main — indent it to clear hamburger */
         .bar { padding-left: 60px !important; flex-wrap: wrap !important; gap: 10px !important; }
         .bar-actions { flex-wrap: wrap !important; gap: 8px !important; }
