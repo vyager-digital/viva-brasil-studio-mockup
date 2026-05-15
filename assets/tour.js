@@ -21,7 +21,7 @@
     {
       page: '02-intake.html',
       selector: '[data-tour-id="call-notes"]',
-      main: ["After a discovery call, this is where it starts.", "Paste in your notes — rough, unedited, exactly as you typed them.", "One click, and the AI reads them and builds the client profile."],
+      main: ["After a discovery call, this is where it starts.", "Paste in your notes — rough, unedited, exactly as you typed them.", "Or paste a full call transcript if you record your calls. The AI reads either.","One click, and it builds the client profile."],
       behind: ["The AI extracts name, origin, travel dates, budget range, group size, interests, and any specific preferences or exclusions mentioned.", "It also captures softer signals — what excited the client, what they want to avoid, how they want to feel on the trip.", "Nothing is assumed. If it is not in the notes, it is left blank for you to fill in."]
     },
     {
