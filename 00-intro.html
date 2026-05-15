@@ -11,14 +11,11 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html, body {
-      height: 100%;
-      overflow: hidden;
-    }
+    html, body { height: 100%; overflow: hidden; }
 
     body {
       font-family: Montserrat, Arial, sans-serif;
-      background: #0a1020;
+      background: #080e1e;
     }
 
     .bg {
@@ -26,7 +23,7 @@
       inset: 0;
       background-image: url('assets/images/lm-aerial.webp');
       background-size: cover;
-      background-position: center 40%;
+      background-position: center 35%;
       z-index: 0;
     }
 
@@ -35,9 +32,9 @@
       inset: 0;
       background: linear-gradient(
         to right,
-        rgba(8, 14, 30, 0.98) 0%,
-        rgba(8, 14, 30, 0.95) 50%,
-        rgba(8, 14, 30, 0.60) 100%
+        rgba(6, 11, 24, 0.97) 0%,
+        rgba(6, 11, 24, 0.92) 45%,
+        rgba(6, 11, 24, 0.45) 100%
       );
       z-index: 1;
     }
@@ -48,117 +45,191 @@
       height: 100vh;
       display: flex;
       flex-direction: column;
-      padding: 2.25rem 6vw;
+      padding: 2rem 3.5vw 2rem 5vw;
     }
 
-    /* Top bar */
+    /* ── TOP BAR ── */
     .topbar {
       display: flex;
       align-items: center;
-      gap: 0.9rem;
+      justify-content: space-between;
       flex-shrink: 0;
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
     }
-    .topbar img { height: 40px; }
+
+    .topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .topbar-left img { height: 38px; }
     .topbar-divider {
       width: 1px;
-      height: 22px;
-      background: rgba(255,255,255,0.12);
+      height: 20px;
+      background: rgba(255,255,255,0.15);
     }
-    .topbar-label {
+    .studio-label {
       font-family: Oswald, sans-serif;
       font-size: 10px;
       font-weight: 500;
-      letter-spacing: 0.3em;
+      letter-spacing: 0.35em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.28);
+      color: rgba(255,255,255,0.3);
     }
 
-    /* Two-column layout */
-    .columns {
-      display: grid;
-      grid-template-columns: 1.3fr 1fr;
-      gap: 5vw;
-      flex: 1;
+    .topbar-right {
+      display: flex;
       align-items: center;
+      gap: 1rem;
+    }
+    .topbar-right img.vyager { height: 22px; opacity: 0.85; }
+    .topbar-right img.elow { height: 28px; opacity: 0.85; }
+    .collab-text {
+      font-family: Oswald, sans-serif;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      white-space: nowrap;
     }
 
-    /* Left column — text */
+    /* ── MAIN GRID ── */
+    .main {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 3vw;
+      flex: 1;
+      align-items: stretch;
+      min-height: 0;
+    }
+
+    /* ── LEFT ── */
     .col-left {
-      border-right: 1px solid rgba(255,255,255,0.07);
-      padding-right: 4vw;
-    }
-
-    .body-text p {
-      font-size: 15px;
-      font-weight: 400;
-      line-height: 1.8;
-      color: rgba(255,255,255,0.82);
-      margin-bottom: 1.1rem;
-    }
-    .body-text p:last-child { margin-bottom: 0; }
-
-    .body-text .standout {
-      color: #ffffff;
-      font-weight: 600;
-    }
-
-    .rule {
-      width: 32px;
-      height: 1px;
-      background: rgba(201,144,42,0.35);
-      margin: 1.25rem 0;
-    }
-
-    /* Right column — heading + button */
-    .col-right {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      height: 100%;
-      padding: 0.5rem 0 1rem;
+      justify-content: center;
+      padding-right: 2vw;
     }
 
-    .section-label {
+    .kicker {
       font-family: Oswald, sans-serif;
       font-size: 10px;
       font-weight: 600;
-      letter-spacing: 0.28em;
+      letter-spacing: 0.3em;
       text-transform: uppercase;
       color: #C9902A;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.6rem;
     }
 
     .heading {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2.8rem, 4.5vw, 4rem);
-      letter-spacing: 0.03em;
+      font-size: clamp(3.2rem, 5.5vw, 5rem);
+      letter-spacing: 0.02em;
       color: #ffffff;
-      line-height: 1;
+      line-height: 0.95;
+      margin-bottom: 1.75rem;
     }
 
-    .col-right-bottom {
+    .body-text p {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.72);
+      margin-bottom: 0.9rem;
+      max-width: 520px;
+    }
+    .body-text p:last-child { margin-bottom: 0; }
+    .body-text strong {
+      color: rgba(255,255,255,0.95);
+      font-weight: 600;
+    }
+
+    /* ── RIGHT CARD ── */
+    .col-right {
+      display: flex;
+      flex-direction: column;
+      background: rgba(6, 11, 24, 0.82);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 6px;
+      padding: 2rem 2rem 1.75rem;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .card-icon-row {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+    }
+    .card-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,144,42,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .card-label {
+      font-family: Oswald, sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .card-body {
+      flex: 1;
+    }
+    .card-body p {
+      font-size: 13.5px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 0.85rem;
+    }
+    .card-body p:last-child { margin-bottom: 0; }
+    .card-body strong {
+      color: rgba(255,255,255,0.9);
+      font-weight: 600;
+    }
+
+    .card-footer {
       margin-top: auto;
-      padding-top: 2rem;
+      padding-top: 1.75rem;
     }
 
     .btn-enter {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 0.7rem;
+      justify-content: space-between;
       background: #C9902A;
-      color: #0a1020;
+      color: #080e1e;
       font-family: Oswald, sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       text-decoration: none;
-      padding: 0.85rem 2rem;
-      border-radius: 3px;
+      padding: 0.9rem 1.25rem;
+      border-radius: 4px;
       transition: background 0.15s;
+      margin-bottom: 1rem;
     }
-    .btn-enter:hover { background: #a87820; }
+    .btn-enter:hover { background: #b07820; }
+
+    .tagline {
+      font-family: Oswald, sans-serif;
+      font-size: 9.5px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -168,36 +239,59 @@
 
   <div class="page">
 
+    <!-- TOP BAR -->
     <div class="topbar">
-      <img src="assets/brand/logo-white.png" alt="Viva Brasil Travel">
-      <div class="topbar-divider"></div>
-      <span class="topbar-label">Studio</span>
+      <div class="topbar-left">
+        <img src="assets/brand/logo-white.png" alt="Viva Brasil Travel">
+        <div class="topbar-divider"></div>
+        <span class="studio-label">Studio</span>
+      </div>
+      <div class="topbar-right">
+        <img src="assets/brand/vyager-logo.webp" alt="Vyager Digital" class="vyager">
+        <span class="collab-text">in collaboration with</span>
+        <img src="assets/brand/elow-logo.webp" alt="ELOW Estúdio Design" class="elow">
+      </div>
     </div>
 
-    <div class="columns">
+    <!-- MAIN -->
+    <div class="main">
 
+      <!-- LEFT -->
       <div class="col-left">
+        <div class="kicker">Business Context</div>
+        <div class="heading">The gap is in<br>the response<br>time</div>
         <div class="body-text">
           <p>Viva Brasil Travel has something most operators spend careers trying to build: 30 years of destination knowledge and a founder who grew up in Switzerland and built his career in Brazil.</p>
-          <p>He speaks his clients' language, understands their culture, and knows Brazil the way most locals do not. <span class="standout">Building a trip is closer to producing a film than booking travel</span> — there is a script, a cast, locations chosen for what they do to people. The itinerary is built around contrast: raw nature against modern architecture, wildlife alertness against hammock stillness. Clients arrive thinking they know what Brazil is. <span class="standout">They leave with something they will spend the rest of their lives describing to other people.</span></p>
-          <div class="rule"></div>
-          <p>That level of care takes time. During peak months — March through April, July through August — time is the one thing Daniel does not have enough of. Leads arrive faster than proposals can follow. Every proposal is assembled by hand: destination texts, photos, translations, itinerary. The ceiling is not demand. It is capacity. Some revenue slips away before Daniel can secure it.</p>
-          <p><span class="standout">This is what we are building: a private tool that closes that gap.</span></p>
+          <p><strong>Building a trip is closer to producing a film than booking travel</strong> — there is a script, a cast, locations chosen for what they do to people. The itinerary is built around contrast: raw nature against modern architecture, wildlife alertness against hammock stillness. Clients arrive thinking they know what Brazil is. They leave with something they will spend the rest of their lives describing to other people.</p>
         </div>
       </div>
 
+      <!-- RIGHT CARD -->
       <div class="col-right">
-        <div>
-          <div class="section-label">Business Context</div>
-          <div class="heading">The gap is in<br>the response<br>time</div>
+        <div class="card-icon-row">
+          <div class="card-icon">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <circle cx="6" cy="6" r="4" stroke="#C9902A" stroke-width="1.2"/>
+              <path d="M6 3.5v3l1.5 1.5" stroke="#C9902A" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="card-label">Where leads go quiet</span>
         </div>
-        <div class="col-right-bottom">
+
+        <div class="card-body">
+          <p>That level of care takes time. During peak months — March through April, July through August — time is the one thing Daniel does not have enough of.</p>
+          <p>Leads arrive faster than proposals can follow. Every proposal is assembled by hand: destination texts, photos, translations, itinerary.</p>
+          <p><strong>The ceiling is not demand. It is capacity.</strong> Some revenue slips away before Daniel can secure it.</p>
+        </div>
+
+        <div class="card-footer">
           <a href="00-login.html" class="btn-enter">
             Enter Studio
-            <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
-              <path d="M2 7h10M8 3l4 4-4 4" stroke="#0a1020" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M2 7h10M8 3l4 4-4 4" stroke="#080e1e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </a>
+          <div class="tagline">A private tool that closes that gap</div>
         </div>
       </div>
 
