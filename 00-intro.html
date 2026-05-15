@@ -12,70 +12,123 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html, body {
-      height: 100%;
-      overflow: hidden;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
 
     body {
       font-family: Montserrat, Arial, sans-serif;
-      background: #0d1628;
+      background: #0a1020;
       position: relative;
     }
 
     .bg {
-      position: absolute;
+      position: fixed;
       inset: 0;
       background-image: url('assets/images/lm-aerial.webp');
       background-size: cover;
-      background-position: center 30%;
+      background-position: center 40%;
       z-index: 0;
     }
 
     .overlay {
-      position: absolute;
+      position: fixed;
       inset: 0;
       background: linear-gradient(
-        to right,
-        rgba(10, 16, 35, 0.92) 0%,
-        rgba(10, 16, 35, 0.75) 50%,
-        rgba(10, 16, 35, 0.30) 100%
+        105deg,
+        rgba(8, 14, 30, 0.96) 0%,
+        rgba(8, 14, 30, 0.88) 45%,
+        rgba(8, 14, 30, 0.55) 100%
       );
       z-index: 1;
     }
 
-    .content {
+    .page {
       position: relative;
       z-index: 2;
-      height: 100vh;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 3rem 10vw;
+    }
+
+    /* Top bar */
+    .topbar {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 5rem;
+    }
+
+    .topbar img {
+      height: 48px;
+    }
+
+    .topbar-divider {
+      width: 1px;
+      height: 28px;
+      background: rgba(255,255,255,0.12);
+    }
+
+    .topbar-label {
+      font-family: Oswald, sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* Content */
+    .content {
+      max-width: 620px;
+      flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 0 8vw;
-      max-width: 720px;
     }
 
-    .kicker {
+    .section-label {
       font-family: Oswald, sans-serif;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 600;
-      letter-spacing: 0.32em;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
       color: #C9902A;
+      margin-bottom: 0.6rem;
+    }
+
+    .heading {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      letter-spacing: 0.04em;
+      color: #ffffff;
+      line-height: 1.05;
       margin-bottom: 2.5rem;
     }
 
-    .body-text {
-      font-size: 1.125rem;
+    .body-text p {
+      font-size: 15px;
       font-weight: 400;
-      line-height: 1.75;
-      color: rgba(255,255,255,0.88);
-      margin-bottom: 3.5rem;
-      max-width: 580px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 1.25rem;
     }
 
-    .body-text strong {
-      color: #ffffff;
-      font-weight: 600;
+    .body-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .body-text .standout {
+      color: rgba(255,255,255,0.95);
+      font-weight: 500;
+    }
+
+    .divider {
+      width: 36px;
+      height: 1px;
+      background: rgba(201,144,42,0.35);
+      margin: 2rem 0;
     }
 
     .btn-enter {
@@ -83,42 +136,21 @@
       align-items: center;
       gap: 0.75rem;
       background: #C9902A;
-      color: #0d1628;
+      color: #0a1020;
       font-family: Oswald, sans-serif;
       font-size: 12px;
       font-weight: 600;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       text-decoration: none;
-      padding: 0.85rem 2rem;
+      padding: 0.9rem 2.25rem;
       border-radius: 3px;
       transition: background 0.15s;
       width: fit-content;
+      margin-top: 2.5rem;
+      margin-bottom: 3rem;
     }
     .btn-enter:hover { background: #a87820; }
-    .btn-enter svg { flex-shrink: 0; }
-
-    .logo-lockup {
-      position: absolute;
-      top: 2.5rem;
-      left: 8vw;
-      z-index: 3;
-      display: flex;
-      flex-direction: column;
-    }
-    .logo-lockup img {
-      height: 56px;
-    }
-    .logo-lockup .studio-label {
-      font-family: Oswald, sans-serif;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.38em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.2);
-      margin-top: -4px;
-      padding-left: 2px;
-    }
   </style>
 </head>
 <body>
@@ -126,25 +158,38 @@
   <div class="bg"></div>
   <div class="overlay"></div>
 
-  <div class="logo-lockup">
-    <img src="assets/brand/logo-white.png" alt="Viva Brasil Travel">
-    <span class="studio-label">Studio</span>
-  </div>
+  <div class="page">
 
-  <div class="content">
+    <div class="topbar">
+      <img src="assets/brand/logo-white.png" alt="Viva Brasil Travel">
+      <div class="topbar-divider"></div>
+      <span class="topbar-label">Studio</span>
+    </div>
 
-    <div class="kicker">Viva Brasil Travel &nbsp;·&nbsp; A different kind of trip</div>
+    <div class="content">
 
-    <p class="body-text">
-      He speaks his clients' language, understands their culture, and knows Brazil the way most locals do not. <strong>Building a trip is closer to producing a film than booking travel</strong> — there is a script, a cast, locations chosen for what they do to the people in them. The itinerary is built around contrast: raw nature against modern architecture, wildlife alertness against hammock stillness. Clients arrive thinking they know what Brazil is. <strong>They leave with something they will spend the rest of their lives describing to other people.</strong>
-    </p>
+      <div class="section-label">Business Context</div>
+      <div class="heading">The gap is in the response time</div>
 
-    <a href="00-login.html" class="btn-enter">
-      Enter Studio
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-        <path d="M2 7h10M8 3l4 4-4 4" stroke="#0d1628" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </a>
+      <div class="body-text">
+        <p>Viva Brasil Travel has something most operators spend careers trying to build: 30 years of destination knowledge and a founder who grew up in Switzerland and built his career in Brazil.</p>
+        <p>He speaks his clients' language, understands their culture, and knows Brazil the way most locals do not. <span class="standout">Building a trip is closer to producing a film than booking travel</span> — there is a script, a cast, locations chosen for what they do to the people in them. The itinerary is built around contrast: raw nature against modern architecture, wildlife alertness against hammock stillness. Clients arrive thinking they know what Brazil is. <span class="standout">They leave with something they will spend the rest of their lives describing to other people.</span></p>
+
+        <div class="divider"></div>
+
+        <p>The time between a call and a proposal arriving in the client's inbox. That is where leads go quiet.</p>
+        <p>During peak months — March through April, July through August — leads arrive faster than proposals can follow. Every proposal is assembled by hand: destination texts, photos, translations, itinerary. The ceiling is not demand. It is capacity. Some revenue slips away before Daniel can secure it.</p>
+        <p><span class="standout">This is what we are building: a private tool that closes that gap.</span></p>
+      </div>
+
+      <a href="00-login.html" class="btn-enter">
+        Enter Studio
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M2 7h10M8 3l4 4-4 4" stroke="#0a1020" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+
+    </div>
 
   </div>
 
