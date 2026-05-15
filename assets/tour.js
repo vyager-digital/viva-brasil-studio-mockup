@@ -156,11 +156,15 @@
         margin-bottom: 28px;
       }
 
+      .tour-panel-scroll {
+        flex: 1;
+        overflow-y: auto;
+        min-height: 0;
+      }
       .tour-panel-main {
         font-size: 16px;
         line-height: 1.65;
         color: #fff;
-        flex: 1;
       }
       .tour-panel-main span { display: block; }
       .tour-panel-main span + span { margin-top: 4px; }
@@ -295,12 +299,14 @@
     state.panel.innerHTML = `
       <button class="tour-close-btn" type="button" aria-label="Close">×</button>
       <div class="tour-panel-eyebrow">Presentation Mode</div>
-      <div class="tour-panel-main">${lineHtml(step.main)}</div>
-      ${step.behind ? `
-        <hr class="tour-panel-divider">
-        <div class="tour-panel-behind-label">Behind the scenes</div>
-        <div class="tour-panel-behind">${lineHtml(step.behind)}</div>
-      ` : ''}
+      <div class="tour-panel-scroll">
+        <div class="tour-panel-main">${lineHtml(step.main)}</div>
+        ${step.behind ? `
+          <hr class="tour-panel-divider">
+          <div class="tour-panel-behind-label">Behind the scenes</div>
+          <div class="tour-panel-behind">${lineHtml(step.behind)}</div>
+        ` : ''}
+      </div>
       <div class="tour-panel-footer">
         <div class="tour-step-counter">${index + 1} of ${steps.length}</div>
         <div class="tour-nav">
