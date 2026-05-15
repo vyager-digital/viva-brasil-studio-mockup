@@ -291,10 +291,16 @@
         .main {
           margin-left: 0 !important;
           width: 100% !important;
+          max-width: 100vw !important;
+          overflow-x: hidden !important;
           padding-left: 20px !important;
           padding-right: 20px !important;
           padding-top: 68px !important;
         }
+        .app { overflow-x: hidden !important; }
+
+        /* Filter pills: wrap onto next line */
+        .filters { flex-wrap: wrap !important; }
         /* Draft page bar is first child of .main — indent it to clear hamburger */
         .bar { padding-left: 60px !important; flex-wrap: wrap !important; gap: 10px !important; }
         .bar-actions { flex-wrap: wrap !important; gap: 8px !important; }
