@@ -51,7 +51,8 @@
   };
 
   function pageName() {
-    return window.location.pathname.split('/').pop() || '01-dashboard.html';
+    const name = window.location.pathname.split('/').pop() || '01-dashboard.html';
+    return name.endsWith('.html') ? name : name + '.html';
   }
 
   function firstStepForPage(page) {
@@ -239,11 +240,6 @@
       }
       .tour-close-btn:hover { color: #fff; }
 
-      /* Nudge the main content area to make room for the panel */
-      body.tour-running .main {
-        transition: width 0.26s cubic-bezier(.4,0,.2,1), padding-right 0.26s;
-        padding-right: 316px;
-      }
     `;
     document.head.appendChild(style);
   }
