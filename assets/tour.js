@@ -3,43 +3,44 @@
     {
       page: '01-dashboard.html',
       selector: '[data-tour-id="dashboard-cards"]',
-      main: ["Here's where your pipeline lives.", "Every lead, every status, at a glance."]
+      main: ["This is your command centre.", "At a glance: how many leads are active, how many proposals are out, and where each one stands.", "During peak season, when five enquiries arrive in the same week, this is what keeps everything visible."],
+      behind: ["The stat cards update in real time as clients move through the pipeline.", "Status changes here reflect the same record used for proposal generation — nothing is duplicated or manually updated twice."]
     },
     {
       page: '01-dashboard.html',
       selector: '[data-tour-id="client-list"]',
-      main: ["Every client you've worked with — organised and searchable."],
-      behind: ["Each record holds their profile, selected destinations, every proposal version, and all three language outputs."]
+      main: ["Every client, past and present, in one place.", "You can see at a glance who is active, who has a proposal out, and who has travelled before.", "Repeat clients like Matthias are flagged automatically — the system knows they have history with you."],
+      behind: ["Each record stores the full client profile, every proposal version generated, destination selections, and all language outputs.", "Nothing is lost between sessions. Pick up any lead exactly where you left it, weeks later."]
     },
     {
       page: '02-client.html',
       selector: '[data-tour-id="client-proposals"]',
-      main: ["Every version of every proposal, stored.", "Pick up where you left off, any time."],
-      behind: ["Each record stores the client profile, the destinations selected, and all language versions — generated once, available instantly."]
+      main: ["This is the full history for one client.", "Every version of their proposal is saved — v1, v2, any revisions.", "If a client comes back six months later asking to revisit a route, it is still here."],
+      behind: ["Proposal versions are tied to the client record, not stored as loose files.", "Each version retains its language outputs independently, so a German v1 and an English v2 coexist without overwriting each other."]
     },
     {
       page: '02-intake.html',
       selector: '[data-tour-id="call-notes"]',
-      main: ["Paste your notes from the call.", "One click — and the AI takes over."],
-      behind: ["The AI pulls out the key details — name, origin, budget, travel dates, interests, and group size — into separate fields."]
+      main: ["After a discovery call, this is where it starts.", "Paste in your notes — rough, unedited, exactly as you typed them.", "One click, and the AI reads them and builds the client profile."],
+      behind: ["The AI extracts name, origin, travel dates, budget range, group size, interests, and any specific preferences or exclusions mentioned.", "It also captures softer signals — what excited the client, what they want to avoid, how they want to feel on the trip.", "Nothing is assumed. If it is not in the notes, it is left blank for you to fill in."]
     },
     {
       page: '03-review.html',
       selector: '[data-tour-id="review-profile"]',
-      main: ["You see what the AI picked up.", "Adjust anything that doesn't look right."],
-      behind: ["This profile is saved to a dedicated database.", "Every step that follows — destination matching, proposal writing, translation — reads from this record."]
+      main: ["Here is what the AI understood from your notes.", "You review it, correct anything that is off, and confirm.", "This takes less than two minutes — and it is the only step that requires your attention before the proposal is drafted."],
+      behind: ["This profile becomes the single source of truth for everything downstream.", "Destination matching, proposal copy, tone, language selection — every step reads from this record.", "If the profile is accurate, the proposal will be accurate. The quality check happens here, once."]
     },
     {
       page: '04-stories.html',
       selector: '[data-tour-id="story-grid"]',
-      main: ["The AI recommends which destinations to include.", "It explains why for each one."],
-      behind: ["Your destinations are already loaded — every text, photo, and tag, structured and ready.", "The AI reads from a dedicated database.", "The client's profile is matched against your full destination library. The best fits come first."]
+      main: ["The system matches the client profile against your full destination library.", "Each recommendation comes with an explanation — why this place fits this person.", "You deselect anything that does not fit, add anything the AI missed, and confirm the route."],
+      behind: ["Your destinations are pre-loaded — every description, set of photos, tags, and seasonal notes already structured.", "The AI reads the client's interests, travel pace, group size, and budget, then ranks destinations by relevance.", "The 'why' text is also what the AI uses as context when it writes the proposal. Change a selection here and the proposal adjusts automatically."]
     },
     {
       page: '05-draft.html',
       selector: '[data-tour-id="proposal-body"]',
-      main: ["Your proposal. In your voice.", "Ready to edit and send."],
-      behind: ["Before writing, the AI loads a selection of your past proposals as reference.", "It matches your tone and structure — then writes.", "Language versions are generated and stored at the same time."]
+      main: ["This is the proposal the AI drafted — based on the client profile and the destinations you selected.", "Every section is editable. Click any line to change it.", "When you are happy, one click sends it as a private link or exports it as a PDF."],
+      behind: ["Before writing, the AI loads a set of your past proposals as reference material.", "It learns your sentence length, the way you introduce destinations, how you handle pricing — and mirrors it.", "German, French, and English versions are generated in the same pass and stored alongside the draft. The client gets the right language without a second round of work."]
     }
   ];
 
