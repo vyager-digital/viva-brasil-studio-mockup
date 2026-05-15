@@ -9,7 +9,7 @@
     {
       page: '01-dashboard.html',
       selector: '[data-tour-id="client-list"]',
-      main: ["Every client, past and present, in one place.", "You can see at a glance who is active, who has a proposal out, and who has travelled before.", "Repeat clients like Matthias are flagged automatically — the system knows they have history with you."],
+      main: ["Every active lead in one table.", "Status, next action, last updated — you can see immediately who needs attention and who can wait.", "Click any row to open the full client record."],
       behind: ["Each record stores the full client profile, every proposal version generated, destination selections, and all language outputs.", "Nothing is lost between sessions. Pick up any lead exactly where you left it, weeks later."]
     },
     {
