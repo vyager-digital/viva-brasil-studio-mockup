@@ -145,61 +145,44 @@
       font-weight: 600;
     }
 
-    /* ── RIGHT CARD ── */
+    /* ── RIGHT COL ── */
     .col-right {
       display: flex;
       flex-direction: column;
-      background: rgba(6, 11, 24, 0.82);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 6px;
-      padding: 2rem 2rem 1.75rem;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-    }
-
-    .card-icon-row {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      margin-bottom: 1rem;
-    }
-    .card-icon {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      border: 1px solid rgba(201,144,42,0.4);
-      display: flex;
-      align-items: center;
       justify-content: center;
-      flex-shrink: 0;
-    }
-    .card-label {
-      font-family: Oswald, sans-serif;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
+      gap: 0.85rem;
     }
 
-    .card-body {
-      flex: 1;
-    }
-    .card-body p {
+    .col-right p {
       font-size: 13.5px;
       line-height: 1.75;
       color: rgba(255,255,255,0.65);
-      margin-bottom: 0.85rem;
     }
-    .card-body p:last-child { margin-bottom: 0; }
-    .card-body strong {
+    .col-right p strong {
       color: rgba(255,255,255,0.9);
       font-weight: 600;
     }
 
-    .card-footer {
-      margin-top: auto;
-      padding-top: 1.75rem;
+    .callout {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      background: rgba(201,144,42,0.08);
+      border: 1px solid rgba(201,144,42,0.35);
+      border-radius: 5px;
+      padding: 0.9rem 1.1rem;
+      margin-top: 0.25rem;
+    }
+    .callout-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .callout p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.8);
+      margin: 0;
     }
 
     .btn-enter {
@@ -217,19 +200,9 @@
       padding: 0.9rem 1.25rem;
       border-radius: 4px;
       transition: background 0.15s;
-      margin-bottom: 1rem;
+      margin-top: 0.5rem;
     }
     .btn-enter:hover { background: #b07820; }
-
-    .tagline {
-      font-family: Oswald, sans-serif;
-      font-size: 9.5px;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.2);
-      text-align: center;
-    }
   </style>
 </head>
 <body>
@@ -247,9 +220,9 @@
         <span class="studio-label">Studio</span>
       </div>
       <div class="topbar-right">
-        <img src="assets/brand/vyager-logo.webp" alt="Vyager Digital" class="vyager">
+        <img src="assets/brand/vyager-logo-white.png" alt="Vyager Digital" class="vyager">
         <span class="collab-text">in collaboration with</span>
-        <img src="assets/brand/elow-logo.webp" alt="ELOW Estúdio Design" class="elow">
+        <img src="assets/brand/elow-logo-white.webp" alt="ELOW Estúdio Design" class="elow">
       </div>
     </div>
 
@@ -262,37 +235,30 @@
         <div class="heading">The gap is in<br>the response<br>time</div>
         <div class="body-text">
           <p>Viva Brasil Travel has something most operators spend careers trying to build: 30 years of destination knowledge and a founder who grew up in Switzerland and built his career in Brazil.</p>
-          <p><strong>Building a trip is closer to producing a film than booking travel</strong> — there is a script, a cast, locations chosen for what they do to people. The itinerary is built around contrast: raw nature against modern architecture, wildlife alertness against hammock stillness. Clients arrive thinking they know what Brazil is. They leave with something they will spend the rest of their lives describing to other people.</p>
+          <p>He speaks his client's language, understands their culture, and knows Brazil the way most locals do not.</p>
         </div>
       </div>
 
-      <!-- RIGHT CARD -->
+      <!-- RIGHT -->
       <div class="col-right">
-        <div class="card-icon-row">
-          <div class="card-icon">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <circle cx="6" cy="6" r="4" stroke="#C9902A" stroke-width="1.2"/>
-              <path d="M6 3.5v3l1.5 1.5" stroke="#C9902A" stroke-width="1.2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <span class="card-label">Where leads go quiet</span>
+        <p>Building a trip is closer to producing a film than booking travel — there is a script, a cast, locations chosen for what they do to people. The itinerary is built around contrast: raw nature against modern architecture, wildlife alertness against hammock stillness. Clients arrive thinking they know what Brazil is. They leave with something they will spend the rest of their lives describing to other people.</p>
+        <p>That level of care takes time. During peak months — March through April, July through August — time is the one thing Daniel does not have enough of. Leads arrive faster than proposals can follow. Every proposal is assembled by hand: destination texts, photos, translations, itinerary. <strong>The ceiling is not demand. It is capacity.</strong> Some revenue slips away before Daniel can secure it.</p>
+
+        <div class="callout">
+          <svg class="callout-icon" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="9" cy="9" r="8" stroke="#C9902A" stroke-width="1.2"/>
+            <path d="M9 5v5" stroke="#C9902A" stroke-width="1.4" stroke-linecap="round"/>
+            <circle cx="9" cy="13" r="0.7" fill="#C9902A"/>
+          </svg>
+          <p>This is what we are building: a private tool that closes that gap.</p>
         </div>
 
-        <div class="card-body">
-          <p>That level of care takes time. During peak months — March through April, July through August — time is the one thing Daniel does not have enough of.</p>
-          <p>Leads arrive faster than proposals can follow. Every proposal is assembled by hand: destination texts, photos, translations, itinerary.</p>
-          <p><strong>The ceiling is not demand. It is capacity.</strong> Some revenue slips away before Daniel can secure it.</p>
-        </div>
-
-        <div class="card-footer">
-          <a href="00-login.html" class="btn-enter">
-            Enter Studio
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M2 7h10M8 3l4 4-4 4" stroke="#080e1e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-          <div class="tagline">A private tool that closes that gap</div>
-        </div>
+        <a href="00-login.html" class="btn-enter">
+          Enter Studio
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M2 7h10M8 3l4 4-4 4" stroke="#080e1e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
       </div>
 
     </div>
