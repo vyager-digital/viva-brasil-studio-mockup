@@ -9,13 +9,23 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600&family=Oswald:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600&family=Oswald:wght@400;500;600&display=swap"></noscript>
   <style>
+    :root {
+      --ink: #07101f;
+      --gold: #d99a25;
+      --text: rgba(255,255,255,0.82);
+      --muted: rgba(255,255,255,0.55);
+    }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html, body { height: 100%; overflow: hidden; }
+    html { height: 100%; background: var(--ink); }
 
     body {
+      height: 100%;
       font-family: Montserrat, Arial, sans-serif;
-      background: #080e1e;
+      background: var(--ink);
+      color: #fff;
+      overflow: hidden;
     }
 
     .bg {
@@ -23,19 +33,18 @@
       inset: 0;
       background-image: url('assets/images/lm-aerial.webp');
       background-size: cover;
-      background-position: center 35%;
+      background-position: center 38%;
       z-index: 0;
+      transform: scale(1.015);
     }
 
     .overlay {
       position: fixed;
       inset: 0;
-      background: linear-gradient(
-        to right,
-        rgba(6, 11, 24, 0.97) 0%,
-        rgba(6, 11, 24, 0.92) 45%,
-        rgba(6, 11, 24, 0.45) 100%
-      );
+      background:
+        radial-gradient(circle at 82% 16%, rgba(88,119,143,0.24), transparent 33%),
+        linear-gradient(90deg, rgba(4, 10, 24, 0.99) 0%, rgba(4, 10, 24, 0.94) 36%, rgba(8, 18, 32, 0.58) 68%, rgba(8, 18, 32, 0.36) 100%),
+        linear-gradient(180deg, rgba(4, 9, 20, 0.25), rgba(4, 9, 20, 0.7));
       z-index: 1;
     }
 
@@ -45,164 +54,342 @@
       height: 100vh;
       display: flex;
       flex-direction: column;
-      padding: 2rem 3.5vw 2rem 5vw;
+      padding: clamp(1.15rem, 4.4vh, 3.1rem) clamp(1.25rem, 5vw, 5.25rem) clamp(1.15rem, 3.8vh, 2.7rem);
     }
 
-    /* ── TOP BAR ── */
     .topbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-shrink: 0;
-      margin-bottom: 2.5rem;
+      gap: 2rem;
+      margin-bottom: clamp(1.25rem, 4.7vh, 3.5rem);
     }
 
-    .topbar-left {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .topbar-left img { height: 38px; }
-    .topbar-divider {
-      width: 1px;
-      height: 20px;
-      background: rgba(255,255,255,0.15);
-    }
-    .studio-label {
-      font-family: Oswald, sans-serif;
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.3);
-    }
-
+    .topbar-left,
     .topbar-right {
       display: flex;
       align-items: center;
-      gap: 1rem;
     }
-    .topbar-right img.vyager { height: 22px; opacity: 0.85; }
-    .topbar-right img.elow { height: 28px; opacity: 0.85; }
+
+    .topbar-left { gap: 1.7rem; }
+    .topbar-right { gap: 1.65rem; }
+
+    .viva-logo {
+      width: clamp(90px, 7vw, 126px);
+      height: auto;
+      display: block;
+      opacity: 0.96;
+    }
+
+    .topbar-divider {
+      width: 1px;
+      height: 46px;
+      background: rgba(255,255,255,0.28);
+    }
+
+    .studio-label,
     .collab-text {
       font-family: Oswald, sans-serif;
-      font-size: 9px;
       font-weight: 500;
-      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.36);
       white-space: nowrap;
     }
 
-    /* ── MAIN GRID ── */
+    .studio-label {
+      font-size: clamp(0.95rem, 1.35vw, 1.55rem);
+      letter-spacing: 0.38em;
+    }
+
+    .vyager-logo {
+      width: clamp(132px, 12vw, 205px);
+      height: auto;
+      display: block;
+      opacity: 0.95;
+    }
+
+    .collab-text {
+      font-size: clamp(0.6rem, 0.78vw, 0.84rem);
+      letter-spacing: 0.32em;
+    }
+
+    .elow-logo {
+      width: clamp(88px, 7.6vw, 132px);
+      height: auto;
+      display: block;
+      opacity: 0.94;
+    }
+
     .main {
       display: grid;
-      grid-template-columns: 1fr 380px;
-      gap: 3vw;
+      grid-template-columns: minmax(300px, 545px) minmax(520px, 690px);
+      gap: clamp(2rem, 6.2vw, 6.6rem);
       flex: 1;
-      align-items: stretch;
+      align-items: center;
+      width: 100%;
       min-height: 0;
     }
 
-    /* ── LEFT ── */
     .col-left {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding-right: 2vw;
+      max-width: 610px;
+      padding-bottom: 1vh;
     }
 
     .kicker {
       font-family: Oswald, sans-serif;
-      font-size: 10px;
+      font-size: clamp(0.82rem, 1.05vw, 1.08rem);
       font-weight: 600;
-      letter-spacing: 0.3em;
+      letter-spacing: 0.42em;
       text-transform: uppercase;
-      color: #C9902A;
-      margin-bottom: 0.6rem;
+      color: var(--gold);
+      margin-bottom: clamp(0.85rem, 1.7vh, 1.25rem);
     }
 
     .heading {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(3.2rem, 5.5vw, 5rem);
-      letter-spacing: 0.02em;
-      color: #ffffff;
-      line-height: 0.95;
-      margin-bottom: 1.75rem;
+      font-family: 'Bebas Neue', Impact, sans-serif;
+      font-size: clamp(4.65rem, 6.35vw, 7rem);
+      letter-spacing: 0.035em;
+      color: #f8fbff;
+      line-height: 0.98;
+      margin-bottom: clamp(1.1rem, 3vh, 2.25rem);
+      text-shadow: 0 2px 16px rgba(0,0,0,0.38);
+    }
+
+    .gold-rule {
+      width: 56px;
+      height: 2px;
+      background: var(--gold);
+      margin-bottom: clamp(1.1rem, 2.6vh, 1.75rem);
+    }
+
+    .body-text {
+      max-width: 560px;
     }
 
     .body-text p {
-      font-size: 14px;
+      font-size: clamp(0.96rem, 1.13vw, 1.15rem);
       font-weight: 400;
-      line-height: 1.75;
-      color: rgba(255,255,255,0.72);
-      margin-bottom: 0.9rem;
-      max-width: 520px;
-    }
-    .body-text p:last-child { margin-bottom: 0; }
-    .body-text strong {
-      color: rgba(255,255,255,0.95);
-      font-weight: 600;
+      line-height: 1.5;
+      color: var(--text);
+      margin-bottom: 1.15rem;
     }
 
-    /* ── RIGHT COL ── */
-    .col-right {
+    .body-text p:last-child { margin-bottom: 0; }
+
+    .glass-panel {
+      width: min(100%, 705px);
+      justify-self: center;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      gap: 0.85rem;
+      gap: clamp(1.05rem, 2.35vh, 1.8rem);
+      padding: clamp(1.35rem, 3.5vw, 2.35rem);
+      background: rgba(8, 18, 31, 0.68);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 7px;
+      box-shadow: 0 28px 80px rgba(0,0,0,0.28);
+      backdrop-filter: blur(9px);
     }
 
-    .col-right p {
-      font-size: 13.5px;
-      line-height: 1.75;
-      color: rgba(255,255,255,0.65);
+    .glass-panel p {
+      font-size: clamp(0.94rem, 1.02vw, 1.04rem);
+      line-height: 1.52;
+      color: rgba(255,255,255,0.82);
     }
-    .col-right p strong {
-      color: rgba(255,255,255,0.9);
-      font-weight: 600;
+
+    .glass-panel p strong {
+      color: rgba(255,255,255,0.98);
+      font-weight: 700;
+    }
+
+    .line-break-strong {
+      display: block;
+      margin-top: 0.15em;
+    }
+
+    .panel-rule {
+      height: 1px;
+      background: rgba(255,255,255,0.22);
+      width: 100%;
     }
 
     .callout {
       display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      background: rgba(201,144,42,0.08);
-      border: 1px solid rgba(201,144,42,0.35);
-      border-radius: 5px;
-      padding: 0.9rem 1.1rem;
-      margin-top: 0.25rem;
+      align-items: center;
+      gap: 0.95rem;
     }
+
     .callout-icon {
-      width: 18px;
-      height: 18px;
-      flex-shrink: 0;
-      margin-top: 1px;
+      width: 34px;
+      height: 34px;
+      flex: 0 0 34px;
     }
+
     .callout p {
-      font-size: 13px;
-      color: rgba(255,255,255,0.8);
       margin: 0;
+      font-size: clamp(0.94rem, 1.02vw, 1.04rem);
+      line-height: 1.4;
+      color: rgba(255,255,255,0.83);
     }
 
     .btn-enter {
-      display: flex;
+      width: min(280px, 100%);
+      min-height: clamp(54px, 6.8vh, 68px);
+      display: inline-flex;
       align-items: center;
-      justify-content: space-between;
-      background: #C9902A;
-      color: #080e1e;
+      justify-content: center;
+      gap: 1.15rem;
+      background: linear-gradient(180deg, #ecae34 0%, #d09324 100%);
+      color: #07101f;
       font-family: Oswald, sans-serif;
-      font-size: 12px;
+      font-size: clamp(0.95rem, 1.1vw, 1.08rem);
       font-weight: 700;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.34em;
       text-transform: uppercase;
       text-decoration: none;
-      padding: 0.9rem 1.25rem;
-      border-radius: 4px;
-      transition: background 0.15s;
-      margin-top: 0.5rem;
+      border: 1px solid rgba(255,195,74,0.42);
+      border-radius: 7px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.22), 0 16px 36px rgba(0,0,0,0.24);
+      transition: transform 0.18s ease, filter 0.18s ease;
     }
-    .btn-enter:hover { background: #b07820; }
+
+    .btn-enter:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+    }
+
+    .btn-enter:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: 4px;
+    }
+
+    @media (max-width: 1120px) {
+      .page { padding: clamp(1rem, 2.8vh, 1.5rem) clamp(1rem, 3.8vw, 1.5rem); }
+      .topbar {
+        align-items: center;
+        gap: 1.25rem;
+        margin-bottom: clamp(1rem, 2.8vh, 1.65rem);
+      }
+      .topbar-left { gap: 1rem; }
+      .topbar-right { gap: 0.9rem; }
+      .viva-logo { width: clamp(74px, 9vw, 96px); }
+      .studio-label {
+        font-size: clamp(0.76rem, 1.7vw, 1.05rem);
+        letter-spacing: 0.32em;
+      }
+      .vyager-logo { width: clamp(104px, 14vw, 142px); }
+      .elow-logo { width: clamp(72px, 9.5vw, 94px); }
+      .collab-text {
+        font-size: clamp(0.48rem, 1.1vw, 0.64rem);
+        letter-spacing: 0.24em;
+      }
+      .topbar-divider { height: 34px; }
+      .main {
+        grid-template-columns: minmax(230px, 0.86fr) minmax(330px, 1.14fr);
+        gap: clamp(1.15rem, 3.2vw, 2.1rem);
+      }
+      .heading {
+        font-size: clamp(3.85rem, 9.8vw, 5.9rem);
+        margin-bottom: clamp(0.75rem, 2vh, 1.15rem);
+      }
+      .kicker {
+        font-size: clamp(0.68rem, 1.55vw, 0.86rem);
+        margin-bottom: clamp(0.65rem, 1.55vh, 0.9rem);
+      }
+      .gold-rule { margin-bottom: clamp(0.75rem, 1.8vh, 1.1rem); }
+      .body-text p {
+        font-size: clamp(0.78rem, 1.8vw, 0.96rem);
+        line-height: 1.42;
+        margin-bottom: 0.8rem;
+      }
+      .glass-panel {
+        gap: clamp(0.65rem, 1.5vh, 0.95rem);
+        padding: clamp(0.9rem, 2.4vw, 1.45rem);
+      }
+      .glass-panel p,
+      .callout p {
+        font-size: clamp(0.76rem, 1.58vw, 0.92rem);
+        line-height: 1.42;
+      }
+      .callout { gap: 0.65rem; }
+      .callout-icon {
+        width: 28px;
+        height: 28px;
+        flex-basis: 28px;
+      }
+      .btn-enter {
+        width: min(230px, 100%);
+        min-height: 48px;
+        font-size: 0.82rem;
+        letter-spacing: 0.25em;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .overlay {
+        background:
+          linear-gradient(90deg, rgba(4, 10, 24, 0.98) 0%, rgba(4, 10, 24, 0.9) 58%, rgba(4, 10, 24, 0.66) 100%),
+          linear-gradient(180deg, rgba(4, 10, 24, 0.72), rgba(4, 10, 24, 0.82));
+      }
+
+      .topbar {
+        gap: 0.75rem;
+        margin-bottom: 0.85rem;
+      }
+
+      .topbar-right { gap: 0.62rem; }
+      .viva-logo { width: 70px; }
+      .vyager-logo { width: 98px; }
+      .elow-logo { width: 64px; }
+      .studio-label { font-size: 0.74rem; }
+      .collab-text {
+        max-width: none;
+        white-space: nowrap;
+        line-height: 1.2;
+        letter-spacing: 0.12em;
+      }
+      .topbar-divider { height: 28px; }
+      .main {
+        grid-template-columns: minmax(260px, 0.88fr) minmax(295px, 1.12fr);
+        gap: 0.85rem;
+      }
+      .heading { font-size: clamp(3.25rem, 10.4vw, 4.25rem); }
+      .body-text p { font-size: clamp(0.7rem, 1.85vw, 0.8rem); }
+      .glass-panel p,
+      .callout p { font-size: clamp(0.68rem, 1.8vw, 0.8rem); }
+      .glass-panel { padding: 0.8rem; }
+      .btn-enter {
+        min-height: 42px;
+        width: 188px;
+        font-size: 0.72rem;
+      }
+    }
+
+    @media (max-width: 620px) {
+      body { overflow-y: auto; }
+      .page {
+        height: auto;
+        min-height: 100vh;
+      }
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .main { grid-template-columns: 1fr; }
+      .heading { font-size: clamp(3.2rem, 17vw, 4.5rem); }
+      .body-text p,
+      .glass-panel p { font-size: 0.86rem; }
+      .callout {
+        align-items: flex-start;
+      }
+      .btn-enter {
+        width: 100%;
+        min-height: 62px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -215,14 +402,15 @@
     <!-- TOP BAR -->
     <div class="topbar">
       <div class="topbar-left">
-        <img src="assets/brand/logo-white.png" alt="Viva Brasil Travel">
+        <img src="assets/brand/logo-white.png" alt="Viva Brasil Travel" class="viva-logo">
         <div class="topbar-divider"></div>
         <span class="studio-label">Studio</span>
       </div>
       <div class="topbar-right">
-        <img src="assets/brand/vyager-logo-white.png" alt="Vyager Digital" class="vyager">
+        <img src="assets/brand/vyager-logo-supplied.webp" alt="Vyager Digital" class="vyager-logo">
+        <div class="topbar-divider"></div>
         <span class="collab-text">in collaboration with</span>
-        <img src="assets/brand/elow-logo-white.webp" alt="ELOW Estúdio Design" class="elow">
+        <img src="assets/brand/elow-logo-supplied-cropped.webp" alt="ELOW Estudio Design" class="elow-logo">
       </div>
     </div>
 
@@ -233,24 +421,30 @@
       <div class="col-left">
         <div class="kicker">Business Context</div>
         <div class="heading">The gap is in<br>the response<br>time</div>
+        <div class="gold-rule" aria-hidden="true"></div>
         <div class="body-text">
           <p>Viva Brasil Travel has something most operators spend careers trying to build: 30 years of destination knowledge and a founder who grew up in Switzerland and built his career in Brazil.</p>
-          <p>He speaks his client's language, understands their culture, and knows Brazil the way most locals do not.</p>
+          <p>He speaks his clients' language, understands their culture, and knows Brazil the way most locals do not.</p>
         </div>
       </div>
 
       <!-- RIGHT -->
-      <div class="col-right">
-        <p>Building a trip is closer to producing a film than booking travel — there is a script, a cast, locations chosen for what they do to people. The itinerary is built around contrast: raw nature against modern architecture, wildlife alertness against hammock stillness. Clients arrive thinking they know what Brazil is. They leave with something they will spend the rest of their lives describing to other people.</p>
-        <p>That level of care takes time. During peak months — March through April, July through August — time is the one thing Daniel does not have enough of. Leads arrive faster than proposals can follow. Every proposal is assembled by hand: destination texts, photos, translations, itinerary. <strong>The ceiling is not demand. It is capacity.</strong> Some revenue slips away before Daniel can secure it.</p>
+      <div class="glass-panel">
+        <p>Building a trip is closer to producing a film than booking travel: there is a script, a cast, locations chosen for what they do to people. The itinerary is built around contrast: raw nature against modern architecture, wildlife alertness against hammock stillness. Clients arrive thinking they know what Brazil is. <strong class="line-break-strong">They leave with something they will spend the rest of their lives describing to other people.</strong></p>
+
+        <div class="panel-rule" aria-hidden="true"></div>
+
+        <p>That level of care takes time. During peak months, March through April and July through August, time is the one thing Daniel does not have enough of. Leads arrive faster than proposals can follow. Every proposal is assembled by hand: destination texts, photos, translations, itinerary. <strong>Capacity is the ceiling.</strong> Some revenue slips away before Daniel can secure it.</p>
+
+        <div class="panel-rule" aria-hidden="true"></div>
 
         <div class="callout">
-          <svg class="callout-icon" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="9" cy="9" r="8" stroke="#C9902A" stroke-width="1.2"/>
-            <path d="M9 5v5" stroke="#C9902A" stroke-width="1.4" stroke-linecap="round"/>
-            <circle cx="9" cy="13" r="0.7" fill="#C9902A"/>
+          <svg class="callout-icon" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="19" cy="19" r="17" stroke="#d99a25" stroke-width="1.35"/>
+            <path d="M19 8.5l2.7 7.8 7.8 2.7-7.8 2.7-2.7 7.8-2.7-7.8-7.8-2.7 7.8-2.7L19 8.5Z" stroke="#d99a25" stroke-width="1.35" stroke-linejoin="round"/>
+            <circle cx="19" cy="19" r="2.4" fill="#d99a25"/>
           </svg>
-          <p>This is what we are building: a private tool that closes that gap.</p>
+          <p><strong>This is what we are building:</strong> a private tool that closes that gap.</p>
         </div>
 
         <a href="00-login.html" class="btn-enter">

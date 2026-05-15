@@ -83,6 +83,15 @@
     .price{text-align:right}
     .price span{display:block;font-family:Oswald,sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#C9902A;margin-bottom:7px}
     .price strong{display:block;font-family:"Bebas Neue",sans-serif;font-size:48px;line-height:.9;color:#fff}
+    .testimonials{padding:38px 0;border-top:1px solid #EAE7E1}
+    .testimonials-label{font-family:Oswald,sans-serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#aaa29a;margin-bottom:22px}
+    .testimonial-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .testimonial-card{}
+    .testimonial-photo{height:220px;overflow:hidden}
+    .testimonial-photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .testimonial-quote{padding:22px 24px;background:#F8F6F1;border:1px solid #E0DDD8;border-top:0;border-left:4px solid #C9902A}
+    .testimonial-quote p{font-size:14px;line-height:1.82;font-style:italic;color:#3f465a;margin:0 0 16px}
+    .testimonial-quote cite{font-family:Oswald,sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#C9902A;font-style:normal}
     .signoff{font-size:15px;line-height:1.85;color:#43485b;font-style:italic;margin-top:34px}
     .signoff strong{display:block;font-family:Oswald,sans-serif;font-style:normal;font-size:13px;letter-spacing:.08em;color:#1E2D5A;margin-top:8px}
     .add-section{display:inline-flex;gap:7px;align-items:center;margin-top:14px;color:#aaa29a;font-family:Oswald,sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;cursor:pointer;border:0;background:none;padding:0}
@@ -297,6 +306,30 @@
                 <strong contenteditable="true">USD 13,600</strong>
               </div>
             </section>
+
+            <div class="testimonials">
+              <div class="testimonials-label">From past travellers</div>
+              <div class="testimonial-grid">
+                <div class="testimonial-card">
+                  <div class="testimonial-photo">
+                    <img src="assets/images/testimonial-sunset.webp" width="820" height="220" alt="Sunset at Lençóis Maranhenses" loading="lazy">
+                  </div>
+                  <div class="testimonial-quote">
+                    <p>"The trip was a complete success. The hotels, the tours, the car transfers, the domestic flights — everything went perfectly. We could always rely on the flawless organisation."</p>
+                    <cite>Hanspeter &amp; Maja — Switzerland</cite>
+                  </div>
+                </div>
+                <div class="testimonial-card">
+                  <div class="testimonial-photo">
+                    <img src="assets/images/testimonial-dunes.webp" width="820" height="220" alt="Family on the Lençóis dunes" loading="lazy">
+                  </div>
+                  <div class="testimonial-quote">
+                    <p>"I'd like to thank you again for the excellent preparation and planning of this fantastic, multifaceted trip. It's clear a top-notch professional was involved. Everyone is thrilled."</p>
+                    <cite>Matthias — Switzerland</cite>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <div class="signoff" contenteditable="true">
               I am happy to go through this together on a call. Once you have had time with it, tell me what feels right, what you would like to change, and where you would like the pace adjusted.
